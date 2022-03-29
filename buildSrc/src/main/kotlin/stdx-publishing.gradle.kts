@@ -84,7 +84,7 @@ signing {
 
 tasks {
     task("publishPlatformPublications") {
-        if (!runMainCI) {
+        if (runMainCI) {
             dependsOn(publish)
         } else {
             afterEvaluate {
@@ -104,7 +104,6 @@ tasks {
                 }
 
                 val tasks = enabledTargets.map { "publish${it.publicationName()}PublicationToMavenRepository" }
-                logger.warn("tasks:" + tasks.toList())
                 dependsOn(*tasks.filter { project.tasks.findByName(it) != null }.toList().toTypedArray())
             }
         }
