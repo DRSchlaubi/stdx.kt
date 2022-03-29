@@ -5,6 +5,8 @@ plugins {
 }
 
 kotlin {
+    all()
+
     sourceSets {
         all {
             languageSettings.optIn("kotlinx.coroutines.ExperimentalCoroutinesApi")

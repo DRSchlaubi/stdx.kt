@@ -5,7 +5,7 @@ plugins {
 
 val me = project
 rootProject.subprojects {
-    if (name != me.name && name != "bom") {
+    if (name !in groupProjects) {
         me.evaluationDependsOn(path)
     }
 }
@@ -20,6 +20,14 @@ dependencies {
                     api(groupId, artifactId, version)
                 }
             }
+        }
+    }
+}
+
+if(runMainCI) {
+    publishing {
+        publications.create<MavenPublication>("maven") {
+            from(components["java"])
         }
     }
 }

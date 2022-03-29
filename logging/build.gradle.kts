@@ -4,16 +4,21 @@ plugins {
     `stdx-publishing`
 }
 
-listOf("common", "jvm", "js", "native").forEach { platform ->
-    val path = "${platform}Main"
-    val dir = buildDir.resolve("generated").resolve("src").resolve(path)
-    kotlin.sourceSets.getByName(path).apply {
-        kotlin.srcDir(dir)
+afterEvaluate {
+    listOf("common", "jvm", "js", "native").forEach { platform ->
+        val path = "${platform}Main"
+        val dir = buildDir.resolve("generated").resolve("src").resolve(path)
+        kotlin.sourceSets.findByName(path)?.apply {
+            kotlin.srcDir(dir)
+        }
     }
 }
 
 
 kotlin {
+    fullJs()
+    desktopOSX86()
+
     sourceSets {
         commonMain {
             dependencies {
@@ -31,6 +36,9 @@ tasks {
 
     afterEvaluate {
         "metadataCommonMainClasses"{
+            dependsOn(generateLoggerFunctions)
+        }
+        findByName("compileKotlinJvm")?.apply {
             dependsOn(generateLoggerFunctions)
         }
     }

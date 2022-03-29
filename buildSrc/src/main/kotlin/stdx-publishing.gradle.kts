@@ -1,6 +1,14 @@
+import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
+import org.jetbrains.kotlin.gradle.plugin.KotlinTarget
+import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+import org.jetbrains.kotlin.konan.target.HostManager
+import org.jetbrains.kotlin.konan.target.KonanTarget
+import java.util.Base64
+
 plugins {
     `maven-publish`
     signing
+    id("org.jetbrains.dokka")
 }
 
 val dokkaJar by tasks.registering(Jar::class) {
@@ -11,16 +19,16 @@ val dokkaJar by tasks.registering(Jar::class) {
 
 publishing {
     repositories {
-        listOf(
-            "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/",
+        val repo = if ("SNAPSHOT" in version.toString()) {
             "https://s01.oss.sonatype.org/content/repositories/snapshots/"
-        ).forEach {
-            maven {
-                setUrl(it)
-                credentials {
-                    username = System.getenv("SONATYPE_USER")
-                    password = System.getenv("SONATYPE_KEY")
-                }
+        } else {
+            "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
+        }
+        maven {
+            setUrl(repo)
+            credentials {
+                username = System.getenv("SONATYPE_USER")
+                password = System.getenv("SONATYPE_KEY")
             }
         }
     }
@@ -63,12 +71,44 @@ signing {
     val signingPassword = findProperty("signingPassword")?.toString()
     if (signingKey != null && signingPassword != null) {
         useInMemoryPgpKeys(
-            String(java.util.Base64.getDecoder().decode(signingKey.toByteArray())),
+            String(Base64.getDecoder().decode(signingKey.toByteArray())),
             signingPassword
         )
+
+        publishing.publications.withType<MavenPublication> {
+            sign(this)
+        }
     }
 
-    publishing.publications.withType<MavenPublication> {
-        sign(this)
+}
+
+tasks {
+    task("publishPlatformPublications") {
+        if (!runMainCI) {
+            dependsOn(publish)
+        } else {
+            afterEvaluate {
+                val extension = extensions.findByName("kotlin")
+                        as? KotlinMultiplatformExtension ?: return@afterEvaluate
+
+                val enabledTargets = extension.run {
+                    val hostManager = HostManager()
+                    val macOsTargets = hostManager.enabledByHost[KonanTarget.MACOS_X64] ?: emptySet()
+                    val linuxTargets = hostManager.enabledByHost[KonanTarget.LINUX_X64] ?: emptySet()
+
+                    targets.asSequence()
+                        .filterIsInstance<KotlinNativeTarget>()
+                        .filter {
+                            it.konanTarget !in linuxTargets && it.konanTarget in macOsTargets
+                        }
+                }
+
+                val tasks = enabledTargets.map { "publish${it.publicationName()}PublicationToMavenRepository" }
+                logger.warn("tasks:" + tasks.toList())
+                dependsOn(*tasks.filter { project.tasks.findByName(it) != null }.toList().toTypedArray())
+            }
+        }
     }
 }
+
+fun KotlinTarget.publicationName() = targetName.take(1).toUpperCase() + targetName.drop(1)

@@ -8,8 +8,11 @@ This project aims to combine all of my utility projects and util files into a si
 |--------------------------|-------------------------------------------------|-------------------|-----|-----|--------|
 | [core](core)             | [core](https://stdx.schlau.bi/core)             | `stdx-core`       | ✅   | ✅   | ✅      |
 | [coroutines](coroutines) | [coroutines](https://stdx.schlau.bi/coroutines) | `stdx-coroutines` | ✅   | ✅   | ✅      |
-| [envconf](coroutines)    | [envconf](https://stdx.schlau.bi/envconf)       | `stdx-envconf`    | ✅   | ✅   | ✅      |
-| [logging](logging)       | [logging](https://stdx.schlau.bi/logging)       | `stdx-envconf`    | ✅   | ✅   | ✅      |
+| [envconf](coroutines)    | [envconf](https://stdx.schlau.bi/envconf)       | `stdx-envconf`    | ✅   | ✅²  | ✅¹     |
+| [logging](logging)       | [logging](https://stdx.schlau.bi/logging)       | `stdx-envconf`    | ✅   | ✅   | ✅¹     |
+
+¹ Except for tvOS, watchOS and iOS
+² Only NodeJS
 
 # Download
 

@@ -2,6 +2,7 @@ import org.jetbrains.kotlin.gradle.internal.testing.TCServiceMessagesTestExecuti
 import org.jetbrains.kotlin.gradle.targets.js.testing.KotlinJsTest
 import org.jetbrains.kotlin.gradle.targets.js.testing.KotlinJsTestFramework
 import org.jetbrains.kotlin.gradle.targets.js.testing.mocha.KotlinMocha
+import org.jetbrains.kotlin.gradle.targets.native.tasks.KotlinNativeSimulatorTest
 import org.jetbrains.kotlin.gradle.targets.native.tasks.KotlinNativeTest
 
 plugins {
@@ -11,6 +12,11 @@ plugins {
 }
 
 val testEnv = mapOf("HELLO" to "HELLO", "PREFIX_HELLO" to "HELLO")
+
+kotlin {
+    nodeJs()
+    desktopAll()
+}
 
 tasks {
     withType<Test> {
@@ -24,7 +30,12 @@ tasks {
     withType<KotlinNativeTest> {
         environment = testEnv
     }
+
+    withType<KotlinNativeSimulatorTest> {
+        enabled = false
+    }
 }
+
 
 class EnvConfJsTestFramework(
     private val delegate: KotlinJsTestFramework

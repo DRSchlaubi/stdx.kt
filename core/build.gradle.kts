@@ -3,3 +3,7 @@ plugins {
     `stdx-ktlint`
     `stdx-publishing`
 }
+
+kotlin {
+    all()
+}

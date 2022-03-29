@@ -14,7 +14,7 @@ jobs:
   test:
     strategy:
       matrix:
-        os: [ ubuntu-20.04, macos-11, windows-2022 ]
+        os: [ ubuntu-20.04, macos-11 ]
     runs-on: ${{ matrix.os }}
     needs: validate
     name: Run tests and linter
@@ -34,48 +34,46 @@ jobs:
         name: Validate Binary Compatibility
         with:
           arguments: apiCheck
-  deploy_mpp_to_repo:
-    name: Deploy MPP modules
+  deploy_to_maven:
+    name: Deploy to Maven repo
     strategy:
       matrix:
-        os: [ ubuntu-20.04, macos-11, windows-2022 ]
+        os: [ ubuntu-20.04, macos-11 ]
     runs-on: ${{ matrix.os }}
-    needs: test
-    if: github.event_name != 'pull_request' &&  github.ref != 'refs/heads/main'
+    needs: [test, validate_binary_compatibility]
+    if: github.ref == 'refs/heads/main'
     env:
-      BINTRAY_KEY: ${{ secrets.BINTRAY_KEY }}
-      BINTRAY_USER: ${{ secrets.BINTRAY_USER }}
+      SONATYPE_KEY: ${{ secrets.SONATYPE_KEY }}
+      SONATYPE_USER: ${{ secrets.SONATYPE_USER }}
       ORG_GRADLE_PROJECT_signingKey: ${{ secrets.signingKey }}
       ORG_GRADLE_PROJECT_signingPassword: ${{ secrets.signingPassword }}
       ACTIONS_ALLOW_UNSECURE_COMMANDS: true
     steps:
       - uses: actions/checkout@v2
       - uses: gradle/gradle-build-action@v2
-        name: Publish MPP Code
+        name: Publish Code
         with:
-          arguments: publishAllPublicationsToMavenRepository
-  deploy_java_to_repo:
+          arguments: publishPlatformPublications -X check
+  release_repo:
+    name: Release repo
     runs-on: ubuntu-20.04
-    needs: test
-    if: github.event_name != 'pull_request' &&  github.ref != 'refs/heads/main'
-    name: Deploy grouping modules
+    needs: deploy_to_maven
     env:
-      SONATYPE_USER: ${{ secrets.SONATYPE_USER }}
       SONATYPE_KEY: ${{ secrets.SONATYPE_KEY }}
-      ORG_GRADLE_PROJECT_signingKey: ${{ secrets.SIGNINGKEY }}
-      ORG_GRADLE_PROJECT_signingPassword: ${{ secrets.SIGNINGPASSWORD }}
+      SONATYPE_USER: ${{ secrets.SONATYPE_USER }}
       ACTIONS_ALLOW_UNSECURE_COMMANDS: true
     steps:
       - uses: actions/checkout@v2
       - uses: gradle/gradle-build-action@v2
-        name: Publish Java Code
+        name: Release Repo
         with:
-          arguments: publish
+          arguments: :closeAndReleaseRepository
+
   deploy_docs:
     name: Deploy docs
     runs-on: ubuntu-20.04
-    needs: test
-    if: github.event_name != 'pull_request' &&  github.ref != 'refs/heads/main'
+    needs: [test, validate_binary_compatibility]
+    if: github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v2
       - uses: gradle/gradle-build-action@v2

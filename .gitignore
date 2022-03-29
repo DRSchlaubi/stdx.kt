@@ -142,3 +142,6 @@ gradle-app.setting
 
 # Generated documentation
 docs/
+
+# Artifacts
+.idea/artifacts

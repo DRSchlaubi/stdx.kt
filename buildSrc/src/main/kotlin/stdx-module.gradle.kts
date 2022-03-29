@@ -1,4 +1,5 @@
 import org.gradle.jvm.toolchain.internal.DefaultToolchainSpec
+import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 import java.net.URL
 
 plugins {
@@ -9,30 +10,7 @@ plugins {
 
 kotlin {
     explicitApi()
-
-    jvm {
-        compilations.all {
-            kotlinOptions.jvmTarget = "1.8"
-        }
-        testRuns["test"].executionTask.configure {
-            useJUnitPlatform()
-        }
-    }
-
-    js(BOTH) {
-        browser()
-        nodejs()
-    }
-
-    val hostOs = System.getProperty("os.name")
-    val isMingwX64 = hostOs.startsWith("Windows")
-    when {
-        hostOs == "Mac OS X" -> macosX64("native")
-        hostOs == "Linux" -> linuxX64("native")
-        isMingwX64 -> mingwX64("native")
-        else -> throw GradleException("Host OS is not supported in Kotlin/Native.")
-    }
-
+    configureTargets()
 
     sourceSets {
         all {
@@ -46,14 +24,14 @@ kotlin {
             }
         }
 
-        getByName("jvmTest") {
+        findByName("jvmTest")?.apply {
             dependencies {
                 implementation(kotlin("test-junit5"))
                 runtimeOnly("org.junit.jupiter", "junit-jupiter-engine", "5.7.2")
             }
         }
 
-        getByName("jsTest") {
+        findByName("jsTest")?.apply  {
             dependencies {
                 implementation(kotlin("test-js"))
             }
@@ -65,18 +43,21 @@ tasks {
     withType<org.jetbrains.dokka.gradle.DokkaTask>().configureEach {
         dokkaSourceSets {
             configureEach {
-                sourceLink {
-                    // Unix based directory relative path to the root of the project (where you execute gradle respectively).
-                    localDirectory.set(projectDir.resolve("src/main/kotlin"))
+                val file = projectDir.resolve("src/$name/kotlin")
+                if (file.exists()) {
+                    sourceLink {
+                        // Unix based directory relative path to the root of the project (where you execute gradle respectively).
+                        localDirectory.set(file)
 
-                    // URL showing where the source code can be accessed through the web browser
-                    remoteUrl.set(
-                        URL(
-                            "https://github.com/DRSchlaubi/stdx.kt/blob/main/${project.name}src/main/kotlin"
+                        // URL showing where the source code can be accessed through the web browser
+                        remoteUrl.set(
+                            URL(
+                                "https://github.com/DRSchlaubi/stdx.kt/blob/main/${project.name}src/$name/kotlin"
+                            )
                         )
-                    )
-                    // Suffix which is used to append the line number to the URL. Use #L for GitHub
-                    remoteLineSuffix.set("#L")
+                        // Suffix which is used to append the line number to the URL. Use #L for GitHub
+                        remoteLineSuffix.set("#L")
+                    }
                 }
             }
 
@@ -112,4 +93,24 @@ kotlin {
 
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8
+}
+
+fun KotlinMultiplatformExtension.configureTargets() {
+    if (runMainCI) { // Only run non native builds on linux in CI
+        jvm {
+            compilations.all {
+                kotlinOptions.jvmTarget = "1.8"
+            }
+            testRuns["test"].executionTask.configure {
+                useJUnitPlatform()
+            }
+        }
+    }
+
+    sourceSets.create("nativeMain") {
+        dependsOn(sourceSets.commonMain.get())
+    }
+    sourceSets.create("nativeTest") {
+        dependsOn(sourceSets.commonTest.get())
+    }
 }
