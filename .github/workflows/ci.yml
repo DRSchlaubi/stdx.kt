@@ -54,21 +54,6 @@ jobs:
         name: Publish Code
         with:
           arguments: publishPlatformPublications -x check
-  release_repo:
-    name: Release repo
-    runs-on: ubuntu-20.04
-    needs: deploy_to_maven
-    env:
-      SONATYPE_KEY: ${{ secrets.SONATYPE_KEY }}
-      SONATYPE_USER: ${{ secrets.SONATYPE_USER }}
-      ACTIONS_ALLOW_UNSECURE_COMMANDS: true
-    steps:
-      - uses: actions/checkout@v2
-      - uses: gradle/gradle-build-action@v2
-        name: Release Repo
-        with:
-          arguments: :closeAndReleaseRepository
-
   deploy_docs:
     name: Deploy docs
     runs-on: ubuntu-20.04
