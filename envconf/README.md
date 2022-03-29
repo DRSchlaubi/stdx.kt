@@ -22,7 +22,7 @@ class Konfig : Config("HELLO_") {
     // this outsources the prefix to the constructor
     val COUNT by getEnv("HELLO_", 1) { it.toInt() }
 }
-``
+```
 
 # Download
 Please refer to [this](../README.md#download) page
