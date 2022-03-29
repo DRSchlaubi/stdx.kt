@@ -6,4 +6,4 @@ Extensions you can use in any project
 Please refer to [this](../README.md#download) page
 
 # Documentation
-Documentation can be found [here](https://stdx.schlau.bi/logging)
+Documentation can be found [here](https://stdx.schlau.bi/stdx-logging)

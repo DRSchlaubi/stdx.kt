@@ -28,7 +28,7 @@ class Konfig : Config("HELLO_") {
 Please refer to [this](../README.md#download) page
 
 # Documentation
-Documentation can be found [here](https://stdx.schlau.bi/envconf)
+Documentation can be found [here](https://stdx.schlau.bi/stdx-envconf)
 
 # Archived version
 You can find the old version here: https://github.com/DRSchlaubi/envconf

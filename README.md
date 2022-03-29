@@ -4,12 +4,12 @@ This project aims to combine all of my utility projects and util files into a si
 
 # Modules
 
-| Module                   | Docs                                            | Artifact          | JVM | JS  | Native |
-|--------------------------|-------------------------------------------------|-------------------|-----|-----|--------|
-| [core](core)             | [core](https://stdx.schlau.bi/core)             | `stdx-core`       | ✅   | ✅   | ✅      |
-| [coroutines](coroutines) | [coroutines](https://stdx.schlau.bi/coroutines) | `stdx-coroutines` | ✅   | ✅   | ✅      |
-| [envconf](coroutines)    | [envconf](https://stdx.schlau.bi/envconf)       | `stdx-envconf`    | ✅   | ✅²  | ✅¹     |
-| [logging](logging)       | [logging](https://stdx.schlau.bi/logging)       | `stdx-envconf`    | ✅   | ✅   | ✅¹     |
+| Module                   | Docs                                                 | Artifact          | JVM | JS  | Native |
+|--------------------------|------------------------------------------------------|-------------------|-----|-----|--------|
+| [core](core)             | [core](https://stdx.schlau.bi/stdx-core)             | `stdx-core`       | ✅   | ✅   | ✅      |
+| [coroutines](coroutines) | [coroutines](https://stdx.schlau.bi/stdx-coroutines) | `stdx-coroutines` | ✅   | ✅   | ✅      |
+| [envconf](coroutines)    | [envconf](https://stdx.schlau.bi/stdx-envconf)       | `stdx-envconf`    | ✅   | ✅²  | ✅¹     |
+| [logging](logging)       | [logging](https://stdx.schlau.bi/stdx-logging)       | `stdx-envconf`    | ✅   | ✅   | ✅¹     |
 
 ¹ Except for tvOS, watchOS and iOS
 ² Only NodeJS

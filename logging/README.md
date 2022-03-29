@@ -8,7 +8,7 @@ Extensions to [kotlin-logging](https://github.com/MicroUtils/kotlin-logging/)
 private val LOG = KotlinLogging.logger {}
 
 suspend fun main() {
-    LOG.debug {
+    LOG.debugInlined {
         delay(1.minutes)
         "Delayed LOG message"
     }
@@ -19,4 +19,4 @@ suspend fun main() {
 Please refer to [this](../README.md#download) page
 
 # Documentation
-Documentation can be found [here](https://stdx.schlau.bi/logging)
+Documentation can be found [here](https://stdx.schlau.bi/stdx-logging)
