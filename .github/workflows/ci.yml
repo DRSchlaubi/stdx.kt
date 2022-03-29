@@ -1,0 +1,93 @@
+name: CI
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    name: Validate Gradle Wrapper
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: gradle/wrapper-validation-action@v1
+        name: Validate Gradle Wrapper
+  test:
+    strategy:
+      matrix:
+        os: [ ubuntu-20.04, macos-11, windows-2022 ]
+    runs-on: ${{ matrix.os }}
+    needs: validate
+    name: Run tests and linter
+    steps:
+      - uses: actions/checkout@v2
+      - uses: gradle/gradle-build-action@v2
+        name: Validate Code
+        with:
+          arguments: classes check -x apiCheck
+  validate_binary_compatibility:
+    runs-on: ubuntu-20.04
+    needs: validate
+    name: Run binary compatibility validator
+    steps:
+      - uses: actions/checkout@v2
+      - uses: gradle/gradle-build-action@v2
+        name: Validate Binary Compatibility
+        with:
+          arguments: apiCheck
+  deploy_mpp_to_repo:
+    name: Deploy MPP modules
+    strategy:
+      matrix:
+        os: [ ubuntu-20.04, macos-11, windows-2022 ]
+    runs-on: ${{ matrix.os }}
+    needs: test
+    if: github.event_name != 'pull_request' &&  github.ref != 'refs/heads/main'
+    env:
+      BINTRAY_KEY: ${{ secrets.BINTRAY_KEY }}
+      BINTRAY_USER: ${{ secrets.BINTRAY_USER }}
+      ORG_GRADLE_PROJECT_signingKey: ${{ secrets.signingKey }}
+      ORG_GRADLE_PROJECT_signingPassword: ${{ secrets.signingPassword }}
+      ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+    steps:
+      - uses: actions/checkout@v2
+      - uses: gradle/gradle-build-action@v2
+        name: Publish MPP Code
+        with:
+          arguments: publishAllPublicationsToMavenRepository
+  deploy_java_to_repo:
+    runs-on: ubuntu-20.04
+    needs: test
+    if: github.event_name != 'pull_request' &&  github.ref != 'refs/heads/main'
+    name: Deploy grouping modules
+    env:
+      SONATYPE_USER: ${{ secrets.SONATYPE_USER }}
+      SONATYPE_KEY: ${{ secrets.SONATYPE_KEY }}
+      ORG_GRADLE_PROJECT_signingKey: ${{ secrets.SIGNINGKEY }}
+      ORG_GRADLE_PROJECT_signingPassword: ${{ secrets.SIGNINGPASSWORD }}
+      ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+    steps:
+      - uses: actions/checkout@v2
+      - uses: gradle/gradle-build-action@v2
+        name: Publish Java Code
+        with:
+          arguments: publish
+  deploy_docs:
+    name: Deploy docs
+    runs-on: ubuntu-20.04
+    needs: test
+    if: github.event_name != 'pull_request' &&  github.ref != 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v2
+      - uses: gradle/gradle-build-action@v2
+        name: Generate Docs
+        with:
+          arguments: dokkaHtmlMultiModule
+      - name: Deploy Docs
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
+        with:
+          branch: gh-pages
+          folder: docs
+          clean: true
+          clean-exclude: |
+            .nojekyll
+            CNAME

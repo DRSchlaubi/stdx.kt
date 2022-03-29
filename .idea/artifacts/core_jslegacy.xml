@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="core-jslegacy">
+    <output-path>$PROJECT_DIR$/core/build/libs</output-path>
+    <root id="archive" name="core-jslegacy.jar">
+      <element id="module-output" name="stdx-kt.core.jsMain" />
+    </root>
+  </artifact>
+</component>

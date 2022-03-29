@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="coroutines-jslegacy">
+    <output-path>$PROJECT_DIR$/coroutines/build/libs</output-path>
+    <root id="archive" name="coroutines-jslegacy.jar">
+      <element id="module-output" name="stdx-kt.coroutines.jsMain" />
+    </root>
+  </artifact>
+</component>

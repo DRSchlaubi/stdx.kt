@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="envconf-jslegacy">
+    <output-path>$PROJECT_DIR$/envconf/build/libs</output-path>
+    <root id="archive" name="envconf-jslegacy.jar">
+      <element id="module-output" name="stdx-kt.envconf.jsMain" />
+    </root>
+  </artifact>
+</component>

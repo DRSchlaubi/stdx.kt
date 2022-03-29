@@ -1,0 +1,34 @@
+public class dev/schlaubi/envconf/Config {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	protected final fun getEnv (Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ldev/schlaubi/envconf/EnvironmentVariable;
+	protected final fun getEnv (Ljava/lang/String;)Ldev/schlaubi/envconf/EnvironmentVariable;
+	public static synthetic fun getEnv$default (Ldev/schlaubi/envconf/Config;Ljava/lang/Object;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Ldev/schlaubi/envconf/EnvironmentVariable;
+	public static synthetic fun getEnv$default (Ldev/schlaubi/envconf/Config;Ljava/lang/String;ILjava/lang/Object;)Ldev/schlaubi/envconf/EnvironmentVariable;
+	protected final fun getEnvironment ()Ldev/schlaubi/envconf/EnvironmentVariable;
+}
+
+public final class dev/schlaubi/envconf/EnvironmentConfigKt {
+	public static final fun getEnv (Ljava/lang/String;Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ldev/schlaubi/envconf/EnvironmentVariable;
+	public static final fun getEnv (Ljava/lang/String;Ljava/lang/String;)Ldev/schlaubi/envconf/EnvironmentVariable;
+	public static synthetic fun getEnv$default (Ljava/lang/String;Ljava/lang/Object;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Ldev/schlaubi/envconf/EnvironmentVariable;
+	public static synthetic fun getEnv$default (Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ldev/schlaubi/envconf/EnvironmentVariable;
+	public static final fun getEnvironment ()Ldev/schlaubi/envconf/EnvironmentVariable;
+}
+
+public abstract class dev/schlaubi/envconf/EnvironmentVariable : kotlin/properties/ReadOnlyProperty {
+	public static final field Companion Ldev/schlaubi/envconf/EnvironmentVariable$Companion;
+	protected field name Ljava/lang/String;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/functions/Function1;Ljava/lang/Object;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	protected abstract fun convert (Ljava/lang/Object;)Ljava/lang/Object;
+	protected final fun getName ()Ljava/lang/String;
+	public final fun getValue (Ljava/lang/Object;Lkotlin/reflect/KProperty;)Ljava/lang/Object;
+	public fun optional ()Ldev/schlaubi/envconf/EnvironmentVariable;
+	protected final fun setName (Ljava/lang/String;)V
+}
+
+public final class dev/schlaubi/envconf/EnvironmentVariable$Companion {
+	public final fun invoke (Ljava/lang/String;Lkotlin/jvm/functions/Function1;Ljava/lang/Object;)Ldev/schlaubi/envconf/EnvironmentVariable;
+}
+
