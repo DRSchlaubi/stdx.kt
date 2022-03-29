@@ -1,0 +1,11 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:dev.schlaubi.stdx.logging////PointingToDeclaration/stdx-logging/dev.schlaubi.stdx.logging.html
+module:stdx-core
+dev.schlaubi.stdx.core
+module:stdx-coroutines
+dev.schlaubi.stdx.coroutines
+module:stdx-envconf
+dev.schlaubi.envconf
+module:stdx-logging
+dev.schlaubi.stdx.logging
