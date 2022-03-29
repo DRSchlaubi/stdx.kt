@@ -53,7 +53,7 @@ jobs:
       - uses: gradle/gradle-build-action@v2
         name: Publish Code
         with:
-          arguments: publishPlatformPublications -X check
+          arguments: publishPlatformPublications -x check
   release_repo:
     name: Release repo
     runs-on: ubuntu-20.04
