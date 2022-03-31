@@ -6,17 +6,14 @@ import org.jetbrains.kotlin.gradle.targets.native.tasks.KotlinNativeSimulatorTes
 import org.jetbrains.kotlin.gradle.targets.native.tasks.KotlinNativeTest
 
 plugins {
+    nodejs
+    `desktop-all`
     `stdx-module`
     `stdx-ktlint`
     `stdx-publishing`
 }
 
 val testEnv = mapOf("HELLO" to "HELLO", "PREFIX_HELLO" to "HELLO")
-
-kotlin {
-    nodeJs()
-    desktopAll()
-}
 
 tasks {
     withType<Test> {

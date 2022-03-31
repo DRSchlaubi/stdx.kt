@@ -2,10 +2,10 @@ plugins {
     `stdx-module`
     `stdx-ktlint`
     `stdx-publishing`
+    `all-platforms`
 }
 
 kotlin {
-    all()
 
     sourceSets {
         all {

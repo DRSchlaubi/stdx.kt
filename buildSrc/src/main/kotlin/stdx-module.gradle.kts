@@ -106,11 +106,4 @@ fun KotlinMultiplatformExtension.configureTargets() {
             }
         }
     }
-
-    sourceSets.create("nativeMain") {
-        dependsOn(sourceSets.commonMain.get())
-    }
-    sourceSets.create("nativeTest") {
-        dependsOn(sourceSets.commonTest.get())
-    }
 }
