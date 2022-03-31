@@ -81,7 +81,7 @@ abstract class GenerateContextFunctionsTask : AbstractGenerateFilesTask() {
                     )
                     .addCode(
                         """
-                                contract {
+                        contract {
                             callsInPlace(block, InvocationKind.EXACTLY_ONCE)
                         }
 

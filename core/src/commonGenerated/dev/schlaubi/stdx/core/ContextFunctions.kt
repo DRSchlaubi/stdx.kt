@@ -213,7 +213,7 @@ public typealias ContextReceiver26<A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, 
  */
 public inline fun <A, ReturnType> context(a: A, block: ContextReceiver1<A, ReturnType>):
     ReturnType {
-          contract {
+  contract {
       callsInPlace(block, InvocationKind.EXACTLY_ONCE)
   }
 
@@ -228,7 +228,7 @@ public inline fun <A, B, ReturnType> context(
   b: B,
   block: ContextReceiver2<A, B, ReturnType>,
 ): ReturnType {
-          contract {
+  contract {
       callsInPlace(block, InvocationKind.EXACTLY_ONCE)
   }
 
@@ -244,7 +244,7 @@ public inline fun <A, B, C, ReturnType> context(
   c: C,
   block: ContextReceiver3<A, B, C, ReturnType>,
 ): ReturnType {
-          contract {
+  contract {
       callsInPlace(block, InvocationKind.EXACTLY_ONCE)
   }
 
@@ -261,7 +261,7 @@ public inline fun <A, B, C, D, ReturnType> context(
   d: D,
   block: ContextReceiver4<A, B, C, D, ReturnType>,
 ): ReturnType {
-          contract {
+  contract {
       callsInPlace(block, InvocationKind.EXACTLY_ONCE)
   }
 
@@ -279,7 +279,7 @@ public inline fun <A, B, C, D, E, ReturnType> context(
   e: E,
   block: ContextReceiver5<A, B, C, D, E, ReturnType>,
 ): ReturnType {
-          contract {
+  contract {
       callsInPlace(block, InvocationKind.EXACTLY_ONCE)
   }
 
@@ -298,7 +298,7 @@ public inline fun <A, B, C, D, E, F, ReturnType> context(
   f: F,
   block: ContextReceiver6<A, B, C, D, E, F, ReturnType>,
 ): ReturnType {
-          contract {
+  contract {
       callsInPlace(block, InvocationKind.EXACTLY_ONCE)
   }
 
@@ -318,7 +318,7 @@ public inline fun <A, B, C, D, E, F, G, ReturnType> context(
   g: G,
   block: ContextReceiver7<A, B, C, D, E, F, G, ReturnType>,
 ): ReturnType {
-          contract {
+  contract {
       callsInPlace(block, InvocationKind.EXACTLY_ONCE)
   }
 
@@ -340,7 +340,7 @@ public inline fun <A, B, C, D, E, F, G, H, ReturnType> context(
   h: H,
   block: ContextReceiver8<A, B, C, D, E, F, G, H, ReturnType>,
 ): ReturnType {
-          contract {
+  contract {
       callsInPlace(block, InvocationKind.EXACTLY_ONCE)
   }
 
@@ -363,7 +363,7 @@ public inline fun <A, B, C, D, E, F, G, H, I, ReturnType> context(
   i: I,
   block: ContextReceiver9<A, B, C, D, E, F, G, H, I, ReturnType>,
 ): ReturnType {
-          contract {
+  contract {
       callsInPlace(block, InvocationKind.EXACTLY_ONCE)
   }
 
@@ -387,7 +387,7 @@ public inline fun <A, B, C, D, E, F, G, H, I, J, ReturnType> context(
   j: J,
   block: ContextReceiver10<A, B, C, D, E, F, G, H, I, J, ReturnType>,
 ): ReturnType {
-          contract {
+  contract {
       callsInPlace(block, InvocationKind.EXACTLY_ONCE)
   }
 
@@ -412,7 +412,7 @@ public inline fun <A, B, C, D, E, F, G, H, I, J, K, ReturnType> context(
   k: K,
   block: ContextReceiver11<A, B, C, D, E, F, G, H, I, J, K, ReturnType>,
 ): ReturnType {
-          contract {
+  contract {
       callsInPlace(block, InvocationKind.EXACTLY_ONCE)
   }
 
@@ -438,7 +438,7 @@ public inline fun <A, B, C, D, E, F, G, H, I, J, K, L, ReturnType> context(
   l: L,
   block: ContextReceiver12<A, B, C, D, E, F, G, H, I, J, K, L, ReturnType>,
 ): ReturnType {
-          contract {
+  contract {
       callsInPlace(block, InvocationKind.EXACTLY_ONCE)
   }
 
@@ -465,7 +465,7 @@ public inline fun <A, B, C, D, E, F, G, H, I, J, K, L, M, ReturnType> context(
   m: M,
   block: ContextReceiver13<A, B, C, D, E, F, G, H, I, J, K, L, M, ReturnType>,
 ): ReturnType {
-          contract {
+  contract {
       callsInPlace(block, InvocationKind.EXACTLY_ONCE)
   }
 
@@ -493,7 +493,7 @@ public inline fun <A, B, C, D, E, F, G, H, I, J, K, L, M, N, ReturnType> context
   n: N,
   block: ContextReceiver14<A, B, C, D, E, F, G, H, I, J, K, L, M, N, ReturnType>,
 ): ReturnType {
-          contract {
+  contract {
       callsInPlace(block, InvocationKind.EXACTLY_ONCE)
   }
 
@@ -522,7 +522,7 @@ public inline fun <A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, ReturnType> cont
   o: O,
   block: ContextReceiver15<A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, ReturnType>,
 ): ReturnType {
-          contract {
+  contract {
       callsInPlace(block, InvocationKind.EXACTLY_ONCE)
   }
 
@@ -552,7 +552,7 @@ public inline fun <A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, ReturnType> c
   p: P,
   block: ContextReceiver16<A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, ReturnType>,
 ): ReturnType {
-          contract {
+  contract {
       callsInPlace(block, InvocationKind.EXACTLY_ONCE)
   }
 
@@ -583,7 +583,7 @@ public inline fun <A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, ReturnType
   q: Q,
   block: ContextReceiver17<A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, ReturnType>,
 ): ReturnType {
-          contract {
+  contract {
       callsInPlace(block, InvocationKind.EXACTLY_ONCE)
   }
 
@@ -615,7 +615,7 @@ public inline fun <A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, ReturnT
   r: R,
   block: ContextReceiver18<A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, ReturnType>,
 ): ReturnType {
-          contract {
+  contract {
       callsInPlace(block, InvocationKind.EXACTLY_ONCE)
   }
 
@@ -648,7 +648,7 @@ public inline fun <A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, Retu
   s: S,
   block: ContextReceiver19<A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, ReturnType>,
 ): ReturnType {
-          contract {
+  contract {
       callsInPlace(block, InvocationKind.EXACTLY_ONCE)
   }
 
@@ -682,7 +682,7 @@ public inline fun <A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, R
   t: T,
   block: ContextReceiver20<A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, ReturnType>,
 ): ReturnType {
-          contract {
+  contract {
       callsInPlace(block, InvocationKind.EXACTLY_ONCE)
   }
 
@@ -718,7 +718,7 @@ public inline fun <A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U
   u: U,
   block: ContextReceiver21<A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, ReturnType>,
 ): ReturnType {
-          contract {
+  contract {
       callsInPlace(block, InvocationKind.EXACTLY_ONCE)
   }
 
@@ -755,7 +755,7 @@ public inline fun <A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U
   v: V,
   block: ContextReceiver22<A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, ReturnType>,
 ): ReturnType {
-          contract {
+  contract {
       callsInPlace(block, InvocationKind.EXACTLY_ONCE)
   }
 
@@ -793,7 +793,7 @@ public inline fun <A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U
   w: W,
   block: ContextReceiver23<A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, ReturnType>,
 ): ReturnType {
-          contract {
+  contract {
       callsInPlace(block, InvocationKind.EXACTLY_ONCE)
   }
 
@@ -832,7 +832,7 @@ public inline fun <A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U
   x: X,
   block: ContextReceiver24<A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, ReturnType>,
 ): ReturnType {
-          contract {
+  contract {
       callsInPlace(block, InvocationKind.EXACTLY_ONCE)
   }
 
@@ -872,7 +872,7 @@ public inline fun <A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U
   y: Y,
   block: ContextReceiver25<A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, ReturnType>,
 ): ReturnType {
-          contract {
+  contract {
       callsInPlace(block, InvocationKind.EXACTLY_ONCE)
   }
 
@@ -913,7 +913,7 @@ public inline fun <A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U
   z: Z,
   block: ContextReceiver26<A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, ReturnType>,
 ): ReturnType {
-          contract {
+  contract {
       callsInPlace(block, InvocationKind.EXACTLY_ONCE)
   }
 
