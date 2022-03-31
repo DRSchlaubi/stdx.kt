@@ -20,6 +20,10 @@ jobs:
     name: Run tests and linter
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-java@v2
+        with:
+          distribution: 'temurin'
+          java-version: '17'      
       - uses: gradle/gradle-build-action@v2
         name: Validate Code
         with:
@@ -30,6 +34,10 @@ jobs:
     name: Run binary compatibility validator
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-java@v2
+        with:
+          distribution: 'temurin'
+          java-version: '17'      
       - uses: gradle/gradle-build-action@v2
         name: Validate Binary Compatibility
         with:
@@ -50,6 +58,10 @@ jobs:
       ACTIONS_ALLOW_UNSECURE_COMMANDS: true
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-java@v2
+        with:
+          distribution: 'temurin'
+          java-version: '17'      
       - uses: gradle/gradle-build-action@v2
         name: Publish Code
         with:
@@ -61,6 +73,10 @@ jobs:
     if: github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-java@v2
+        with:
+          distribution: 'temurin'
+          java-version: '17'      
       - uses: gradle/gradle-build-action@v2
         name: Generate Docs
         with:
