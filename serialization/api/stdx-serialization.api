@@ -1,3 +1,7 @@
+public final class dev/schlaubi/stdx/serialization/EmptyJsonObjectKt {
+	public static final fun emptyJsonObject ()Lkotlinx/serialization/json/JsonObject;
+}
+
 public final class dev/schlaubi/stdx/serialization/InstantSerializer : kotlinx/serialization/KSerializer {
 	public static final field INSTANCE Ldev/schlaubi/stdx/serialization/InstantSerializer;
 	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
