@@ -3,36 +3,22 @@ import com.squareup.kotlinpoet.FileSpec
 import com.squareup.kotlinpoet.FunSpec
 import com.squareup.kotlinpoet.KModifier
 import com.squareup.kotlinpoet.ParameterSpec
-import org.gradle.api.DefaultTask
 import org.gradle.api.provider.ListProperty
-import org.gradle.api.provider.Property
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.TaskAction
 import org.intellij.lang.annotations.Language
-import java.nio.file.Path
 
-abstract class GenerateLoggerFunctionsTask : DefaultTask() {
-
-    @get:Input
-    abstract val `package`: Property<String>
+abstract class GenerateLoggerFunctionsTask : AbstractGenerateFilesTask() {
 
     @get:Input
     abstract val logLevels: ListProperty<String>
 
-    private val outputDir = project.buildDir
-        .toPath()
-        .resolvePaths("generated", "src")
-
     @Suppress("PrivatePropertyName")
     private val KLogger = ClassName("mu", "KLogger")
 
-    init {
-        outputs.dir(outputDir)
-    }
-
     @TaskAction
     fun generate() {
-        generateFile("commonMain") {
+        generateFile("common", "InlinedLogger") {
             logLevels.get().forEach { level ->
                 val functionName = "${level}Inlined"
 
@@ -41,49 +27,48 @@ abstract class GenerateLoggerFunctionsTask : DefaultTask() {
             }
         }
 
-        generateFile("jvmMain") {
+        generateFile("jvm", "InlinedLogger") {
             generateLoggerFunctions { level, functionName ->
                 // e.g debug -> isDebugEnabled
                 val enabledPropertyName = "is${level[0].toUpperCase()}${level.drop(1)}Enabled"
 
                 debugLevelInlined(functionName, level, KModifier.ACTUAL) {
                     val code = """
-                        if ($enabledPropertyName) {
-                            $level(message())
-                        }
-                    """.trimIndent()
+                                if ($enabledPropertyName) {
+                                    $level(message())
+                                }
+                            """.trimIndent()
                     addCode(code)
                 }
                 debugLevelInlinedWithThrowable(functionName, level, KModifier.ACTUAL) {
                     val code = """
-                        if ($enabledPropertyName) {
-                            val computedMessage = message()
-                            
-                            $level(throwable) { computedMessage }
-                        }
-                    """.trimIndent()
+                                if ($enabledPropertyName) {
+                                    val computedMessage = message()
+                                    
+                                    $level(throwable) { computedMessage }
+                                }
+                            """.trimIndent()
                     addCode(code)
                 }
             }
         }
 
-        generateNonSLF4JFile("jsMain")
-        generateNonSLF4JFile("nativeMain")
+        generateNonSLF4JFile("js")
+        generateNonSLF4JFile("native")
     }
 
     private fun generateNonSLF4JFile(name: String) {
-        generateFile(name) {
-            addImport("mu", "KotlinLoggingLevel")
-            addImport("mu", "isLoggingEnabled")
+        generateFile(name, "InlinedLogger") {
+            addImport("mu", "KotlinLoggingLevel", "isLoggingEnabled")
 
             generateLoggerFunctions { level, functionName ->
                 @Language("kotlin")
                 fun code(call: String) = """
-                        if (KotlinLoggingLevel.${level.toUpperCase()}.isLoggingEnabled()) {
-                            val computedLogMessage = message()
-                            $call
-                        }
-                    """.trimIndent()
+                                if (KotlinLoggingLevel.${level.toUpperCase()}.isLoggingEnabled()) {
+                                    val computedLogMessage = message()
+                                    $call
+                                }
+                            """.trimIndent()
 
                 debugLevelInlined(functionName, level, KModifier.ACTUAL) {
                     addCode(code("$level { computedLogMessage }"))
@@ -101,17 +86,6 @@ abstract class GenerateLoggerFunctionsTask : DefaultTask() {
 
             onFunction(level, functionName)
         }
-    }
-
-    private fun generateFile(sourceSet: String, block: FileSpec.Builder.() -> Unit) {
-        val file = FileSpec.builder(`package`.get(), "InlinedLogger")
-            .apply {
-                commonImports()
-            }
-            .apply(block)
-            .build()
-
-        file.writeTo(outputDir.resolve(sourceSet))
     }
 
     private fun FileSpec.Builder.debugLevelInlined(
@@ -156,12 +130,4 @@ abstract class GenerateLoggerFunctionsTask : DefaultTask() {
             code()
         }
     }
-
-
-    private fun FileSpec.Builder.commonImports() {
-        addImport(KLogger.packageName, KLogger.simpleName)
-    }
 }
-
-private fun Path.resolvePaths(vararg relative: String) =
-    relative.toList().fold(this) { parent, currentRelative -> parent.resolve(currentRelative) }

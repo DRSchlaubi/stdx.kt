@@ -21,6 +21,10 @@ kotlin {
         commonTest {
             dependencies {
                 implementation(kotlin("test"))
+
+                if (project.name != "stdx-test-tools") {
+                    implementation(project(":stdx-test-tools"))
+                }
             }
         }
 
@@ -105,12 +109,5 @@ fun KotlinMultiplatformExtension.configureTargets() {
                 useJUnitPlatform()
             }
         }
-    }
-
-    sourceSets.create("nativeMain") {
-        dependsOn(sourceSets.commonMain.get())
-    }
-    sourceSets.create("nativeTest") {
-        dependsOn(sourceSets.commonTest.get())
     }
 }

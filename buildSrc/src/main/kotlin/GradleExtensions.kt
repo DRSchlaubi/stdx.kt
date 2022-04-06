@@ -6,6 +6,9 @@ private fun notation(group: String, name: String, version: String? = null) =
 fun KotlinDependencyHandler.api(group: String, name: String, version: String? = null) =
     api(notation(group, name, version))
 
+fun KotlinDependencyHandler.compileOnly(group: String, name: String, version: String? = null) =
+    compileOnly(notation(group, name, version))
+
 fun KotlinDependencyHandler.implementation(group: String, name: String, version: String? = null) =
     implementation(notation(group, name, version))
 

@@ -1,0 +1,58 @@
+public final class dev/schlaubi/stdx/serialization/EmptyJsonObjectKt {
+	public static final fun emptyJsonObject ()Lkotlinx/serialization/json/JsonObject;
+}
+
+public final class dev/schlaubi/stdx/serialization/InstantSerializer : kotlinx/serialization/KSerializer {
+	public static final field INSTANCE Ldev/schlaubi/stdx/serialization/InstantSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/time/Instant;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/time/Instant;)V
+}
+
+public final class dev/schlaubi/stdx/serialization/LocalDateSerializer : kotlinx/serialization/KSerializer {
+	public static final field INSTANCE Ldev/schlaubi/stdx/serialization/LocalDateSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/time/LocalDate;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/time/LocalDate;)V
+}
+
+public final class dev/schlaubi/stdx/serialization/LocalDateTimeSerializer : kotlinx/serialization/KSerializer {
+	public static final field INSTANCE Ldev/schlaubi/stdx/serialization/LocalDateTimeSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/time/LocalDateTime;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/time/LocalDateTime;)V
+}
+
+public final class dev/schlaubi/stdx/serialization/LocalTimeSerializer : kotlinx/serialization/KSerializer {
+	public static final field INSTANCE Ldev/schlaubi/stdx/serialization/LocalTimeSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/time/LocalTime;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/time/LocalTime;)V
+}
+
+public final class dev/schlaubi/stdx/serialization/UUIDBinarySerializer : kotlinx/serialization/KSerializer {
+	public static final field INSTANCE Ldev/schlaubi/stdx/serialization/UUIDBinarySerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/util/UUID;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/util/UUID;)V
+}
+
+public final class dev/schlaubi/stdx/serialization/UUIDStringSerializer : kotlinx/serialization/KSerializer {
+	public static final field INSTANCE Ldev/schlaubi/stdx/serialization/UUIDStringSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/util/UUID;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/util/UUID;)V
+}
+

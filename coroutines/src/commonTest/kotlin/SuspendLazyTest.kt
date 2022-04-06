@@ -18,14 +18,14 @@ class SuspendLazyTest {
 
     @Test
     fun testPublicationSuspendLazy() = runTest {
-        if (!isJS) {
+        if (!Platform.isJs) {
             testSafeMode(LazyThreadSafetyMode.PUBLICATION)
         }
     }
 
     @Test
     fun testSynchronizedSuspendLazy() = runTest {
-        if (!isJS) {
+        if (!Platform.isJs) {
             testSafeMode(LazyThreadSafetyMode.SYNCHRONIZED)
         }
     }

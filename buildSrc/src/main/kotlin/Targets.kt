@@ -35,18 +35,19 @@ inline fun KotlinMultiplatformExtension.native(block: KotlinMultiplatformExtensi
     native(block())
 
 fun KotlinMultiplatformExtension.native(target: KotlinNativeTarget) {
+    val nativeMain = sourceSets.maybeCreate("nativeMain").apply {
+        dependsOn(sourceSets.getByName("commonMain"))
+    }
+    val nativeTest = sourceSets.maybeCreate("nativeTest").apply {
+        dependsOn(sourceSets.getByName("commonTest"))
+    }
+
     sourceSets.apply {
         getByName(target.name + "Main") {
-            dependsOn(getByName("nativeMain"))
+            dependsOn(nativeMain)
         }
         getByName(target.name + "Test") {
-            dependsOn(getByName("nativeTest"))
+            dependsOn(nativeTest)
         }
     }
-}
-
-fun KotlinMultiplatformExtension.all() {
-    fullJs()
-    desktopAll()
-    appleMobilePlatforms()
 }
