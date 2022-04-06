@@ -1,6 +1,12 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
-$dokka.location:dev.schlaubi.stdx.logging////PointingToDeclaration/stdx-logging/dev.schlaubi.stdx.logging.html
+$dokka.location:////PointingToDeclaration/stdx-test-tools/[root]/index.html
+$dokka.location:/Platform///PointingToDeclaration/stdx-test-tools/[root]/-platform/index.html
+$dokka.location:/Platform/isBrowser/#/PointingToDeclaration/stdx-test-tools/[root]/-platform/is-browser.html
+$dokka.location:/Platform/isJs/#/PointingToDeclaration/stdx-test-tools/[root]/-platform/is-js.html
+$dokka.location:/Platform/isJvm/#/PointingToDeclaration/stdx-test-tools/[root]/-platform/is-jvm.html
+$dokka.location:/Platform/isNative/#/PointingToDeclaration/stdx-test-tools/[root]/-platform/is-native.html
+$dokka.location:/Platform/isNode/#/PointingToDeclaration/stdx-test-tools/[root]/-platform/is-node.html
 module:stdx-core
 dev.schlaubi.stdx.core
 module:stdx-coroutines
@@ -9,3 +15,5 @@ module:stdx-envconf
 dev.schlaubi.envconf
 module:stdx-logging
 dev.schlaubi.stdx.logging
+module:stdx-serialization
+dev.schlaubi.stdx.serialization
