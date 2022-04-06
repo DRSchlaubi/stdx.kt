@@ -21,7 +21,7 @@ kotlin {
             }
         }
 
-        jvmTest {
+        getByName("jvmTest") {
             dependencies {
                 implementation("com.github.jershell", "kbson", "0.4.4")
             }
