@@ -18,7 +18,7 @@ dependencies {
     }
 }
 
-if(runMainCI) {
+if (runMainCI) {
     publishing {
         publications.create<MavenPublication>("maven") {
             from(components["java"])

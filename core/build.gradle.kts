@@ -7,19 +7,13 @@ plugins {
 
 kotlin {
     fullJs()
-
-    sourceSets {
-        all {
-            languageSettings {
-                enableLanguageFeature("ContextReceivers")
-            }
-        }
-    }
 }
 
 tasks {
     val generateContextFunctions = task<GenerateContextFunctionsTask>("generateContextFunctions") {
         `package`.set("dev.schlaubi.stdx.core")
+        // wait for Kotlin 1.7.0 or stabilization of the feature
+        enabled = false
     }
 
     generateElements {
