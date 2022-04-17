@@ -10,7 +10,7 @@ import mu.KLogger
  */
 public actual inline fun KLogger.debugInlined(message: LazyLogMessage): Unit {
   if (isDebugEnabled) {
-      debug(message())
+    debug(message())
   }
 }
 
@@ -19,9 +19,8 @@ public actual inline fun KLogger.debugInlined(message: LazyLogMessage): Unit {
  */
 public actual inline fun KLogger.debugInlined(throwable: Throwable, message: LazyLogMessage): Unit {
   if (isDebugEnabled) {
-      val computedMessage = message()
-      
-      debug(throwable) { computedMessage }
+    val computedMessage = message()
+    debug(throwable) { computedMessage }
   }
 }
 
@@ -30,7 +29,7 @@ public actual inline fun KLogger.debugInlined(throwable: Throwable, message: Laz
  */
 public actual inline fun KLogger.traceInlined(message: LazyLogMessage): Unit {
   if (isTraceEnabled) {
-      trace(message())
+    trace(message())
   }
 }
 
@@ -39,9 +38,8 @@ public actual inline fun KLogger.traceInlined(message: LazyLogMessage): Unit {
  */
 public actual inline fun KLogger.traceInlined(throwable: Throwable, message: LazyLogMessage): Unit {
   if (isTraceEnabled) {
-      val computedMessage = message()
-      
-      trace(throwable) { computedMessage }
+    val computedMessage = message()
+    trace(throwable) { computedMessage }
   }
 }
 
@@ -50,7 +48,7 @@ public actual inline fun KLogger.traceInlined(throwable: Throwable, message: Laz
  */
 public actual inline fun KLogger.errorInlined(message: LazyLogMessage): Unit {
   if (isErrorEnabled) {
-      error(message())
+    error(message())
   }
 }
 
@@ -59,9 +57,8 @@ public actual inline fun KLogger.errorInlined(message: LazyLogMessage): Unit {
  */
 public actual inline fun KLogger.errorInlined(throwable: Throwable, message: LazyLogMessage): Unit {
   if (isErrorEnabled) {
-      val computedMessage = message()
-      
-      error(throwable) { computedMessage }
+    val computedMessage = message()
+    error(throwable) { computedMessage }
   }
 }
 
@@ -70,7 +67,7 @@ public actual inline fun KLogger.errorInlined(throwable: Throwable, message: Laz
  */
 public actual inline fun KLogger.infoInlined(message: LazyLogMessage): Unit {
   if (isInfoEnabled) {
-      info(message())
+    info(message())
   }
 }
 
@@ -79,9 +76,8 @@ public actual inline fun KLogger.infoInlined(message: LazyLogMessage): Unit {
  */
 public actual inline fun KLogger.infoInlined(throwable: Throwable, message: LazyLogMessage): Unit {
   if (isInfoEnabled) {
-      val computedMessage = message()
-      
-      info(throwable) { computedMessage }
+    val computedMessage = message()
+    info(throwable) { computedMessage }
   }
 }
 
@@ -90,7 +86,7 @@ public actual inline fun KLogger.infoInlined(throwable: Throwable, message: Lazy
  */
 public actual inline fun KLogger.warnInlined(message: LazyLogMessage): Unit {
   if (isWarnEnabled) {
-      warn(message())
+    warn(message())
   }
 }
 
@@ -99,8 +95,7 @@ public actual inline fun KLogger.warnInlined(message: LazyLogMessage): Unit {
  */
 public actual inline fun KLogger.warnInlined(throwable: Throwable, message: LazyLogMessage): Unit {
   if (isWarnEnabled) {
-      val computedMessage = message()
-      
-      warn(throwable) { computedMessage }
+    val computedMessage = message()
+    warn(throwable) { computedMessage }
   }
 }

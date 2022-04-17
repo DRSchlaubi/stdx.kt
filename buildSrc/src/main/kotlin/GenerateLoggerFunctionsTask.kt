@@ -33,22 +33,15 @@ abstract class GenerateLoggerFunctionsTask : AbstractGenerateFilesTask() {
                 val enabledPropertyName = "is${level[0].toUpperCase()}${level.drop(1)}Enabled"
 
                 debugLevelInlined(functionName, level, KModifier.ACTUAL) {
-                    val code = """
-                                if ($enabledPropertyName) {
-                                    $level(message())
-                                }
-                            """.trimIndent()
-                    addCode(code)
+                    beginControlFlow("if (%N)", enabledPropertyName)
+                    addStatement("%N(message())", level)
+                    endControlFlow()
                 }
                 debugLevelInlinedWithThrowable(functionName, level, KModifier.ACTUAL) {
-                    val code = """
-                                if ($enabledPropertyName) {
-                                    val computedMessage = message()
-                                    
-                                    $level(throwable) { computedMessage }
-                                }
-                            """.trimIndent()
-                    addCode(code)
+                    beginControlFlow("if (%N)", enabledPropertyName)
+                    addStatement("val computedMessage = message()")
+                    addStatement("%N(throwable) { computedMessage }", level)
+                    endControlFlow()
                 }
             }
         }
@@ -59,22 +52,27 @@ abstract class GenerateLoggerFunctionsTask : AbstractGenerateFilesTask() {
 
     private fun generateNonSLF4JFile(name: String) {
         generateFile(name, "InlinedLogger") {
-            addImport("mu", "KotlinLoggingLevel", "isLoggingEnabled")
+            addImport("mu", "isLoggingEnabled")
 
             generateLoggerFunctions { level, functionName ->
-                @Language("kotlin")
-                fun code(call: String) = """
-                                if (KotlinLoggingLevel.${level.toUpperCase()}.isLoggingEnabled()) {
-                                    val computedLogMessage = message()
-                                    $call
-                                }
-                            """.trimIndent()
+                val logLevel = ClassName("mu", "KotlinLoggingLevel")
+
+                fun FunSpec.Builder.code(call: FunSpec.Builder.() -> Unit) {
+                    beginControlFlow("if (%T.%N.isLoggingEnabled())", logLevel, level.toUpperCase())
+                    addStatement("val computedLogMessage = message()")
+                    call()
+                    endControlFlow()
+                }
 
                 debugLevelInlined(functionName, level, KModifier.ACTUAL) {
-                    addCode(code("$level { computedLogMessage }"))
+                    code {
+                        addStatement("%N { computedLogMessage }", level)
+                    }
                 }
                 debugLevelInlinedWithThrowable(functionName, level, KModifier.ACTUAL) {
-                    addCode(code("$level(throwable) { computedLogMessage }"))
+                    code {
+                        addStatement("%N(throwable) { computedLogMessage }", level)
+                    }
                 }
             }
         }

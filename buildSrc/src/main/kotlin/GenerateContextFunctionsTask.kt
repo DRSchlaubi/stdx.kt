@@ -1,10 +1,12 @@
 import com.squareup.kotlinpoet.ClassName
+import com.squareup.kotlinpoet.CodeBlock
 import com.squareup.kotlinpoet.FunSpec
 import com.squareup.kotlinpoet.KModifier
 import com.squareup.kotlinpoet.LambdaTypeName
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
 import com.squareup.kotlinpoet.TypeAliasSpec
 import com.squareup.kotlinpoet.TypeVariableName
+import com.squareup.kotlinpoet.joinToCode
 import org.gradle.api.tasks.TaskAction
 
 const val returnTypeParameter = "ReturnType"
@@ -17,7 +19,8 @@ abstract class GenerateContextFunctionsTask : AbstractGenerateFilesTask() {
                 .replaceFirst("lambda_A", "A.() -> ReturnType")
                 .replace("`lambda_A(?:, ((?:(?:, )?[A-Z])*)`)?".toRegex(), "context($1) A.() -> ReturnType")
         }) {
-            addImport("kotlin.contracts", "InvocationKind", "contract")
+            val invocationKind = ClassName("kotlin.contracts", "InvocationKind")
+            addImport("kotlin.contracts", "contract")
 
             val alphabet = ('A'..'Z').toList()
 
@@ -30,10 +33,6 @@ abstract class GenerateContextFunctionsTask : AbstractGenerateFilesTask() {
                     TypeVariableName(name)
                 }
 
-                val lambdaRaw = LambdaTypeName.get(
-                    typeVariables.first(),
-                    returnType = typeVariables.last()
-                ).toString()
 
                 val lambda = "lambda_${typeVariables.dropLast(1).joinToString(", ") { variable -> variable.name }}"
 
@@ -52,14 +51,12 @@ abstract class GenerateContextFunctionsTask : AbstractGenerateFilesTask() {
                         .build()
                 )
 
-                val argumentList = if (count > 1) {
-                    (typeVariables.subList(1, typeVariables.size - 1)
-                        .map { variable -> variable.name.toLowerCase() } + 'a').joinToString(
-                        ", "
-                    )
-                } else {
-                    'a'
+                val last = CodeBlock.of("%N", "a")
+                val others = typeVariables.subList(1, typeVariables.size - 1).map {
+                    CodeBlock.of("%N", it.name.toLowerCase())
                 }
+
+                val argumentList = (others + last).joinToCode(", ")
 
                 val function = FunSpec.builder("context")
                     .addModifiers(KModifier.PUBLIC, KModifier.INLINE)
@@ -79,15 +76,10 @@ abstract class GenerateContextFunctionsTask : AbstractGenerateFilesTask() {
                         } to the context of [block] and returns its return value.
                         """.trimIndent()
                     )
-                    .addCode(
-                        """
-                        contract {
-                            callsInPlace(block, InvocationKind.EXACTLY_ONCE)
-                        }
-
-                        return block.invoke($argumentList)
-                        """.trimIndent()
-                    )
+                    .beginControlFlow("contract")
+                    .addStatement("callsInPlace(%N, %T.%N)", "block", invocationKind, "EXACTLY_ONCE")
+                    .endControlFlow()
+                    .addStatement("return block.invoke(%L)", argumentList)
                     .build()
 
                 functions += function

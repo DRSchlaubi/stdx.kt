@@ -12,8 +12,8 @@ import mu.isLoggingEnabled
  */
 public actual inline fun KLogger.debugInlined(message: LazyLogMessage): Unit {
   if (KotlinLoggingLevel.DEBUG.isLoggingEnabled()) {
-      val computedLogMessage = message()
-      debug { computedLogMessage }
+    val computedLogMessage = message()
+    debug { computedLogMessage }
   }
 }
 
@@ -22,8 +22,8 @@ public actual inline fun KLogger.debugInlined(message: LazyLogMessage): Unit {
  */
 public actual inline fun KLogger.debugInlined(throwable: Throwable, message: LazyLogMessage): Unit {
   if (KotlinLoggingLevel.DEBUG.isLoggingEnabled()) {
-      val computedLogMessage = message()
-      debug(throwable) { computedLogMessage }
+    val computedLogMessage = message()
+    debug(throwable) { computedLogMessage }
   }
 }
 
@@ -32,8 +32,8 @@ public actual inline fun KLogger.debugInlined(throwable: Throwable, message: Laz
  */
 public actual inline fun KLogger.traceInlined(message: LazyLogMessage): Unit {
   if (KotlinLoggingLevel.TRACE.isLoggingEnabled()) {
-      val computedLogMessage = message()
-      trace { computedLogMessage }
+    val computedLogMessage = message()
+    trace { computedLogMessage }
   }
 }
 
@@ -42,8 +42,8 @@ public actual inline fun KLogger.traceInlined(message: LazyLogMessage): Unit {
  */
 public actual inline fun KLogger.traceInlined(throwable: Throwable, message: LazyLogMessage): Unit {
   if (KotlinLoggingLevel.TRACE.isLoggingEnabled()) {
-      val computedLogMessage = message()
-      trace(throwable) { computedLogMessage }
+    val computedLogMessage = message()
+    trace(throwable) { computedLogMessage }
   }
 }
 
@@ -52,8 +52,8 @@ public actual inline fun KLogger.traceInlined(throwable: Throwable, message: Laz
  */
 public actual inline fun KLogger.errorInlined(message: LazyLogMessage): Unit {
   if (KotlinLoggingLevel.ERROR.isLoggingEnabled()) {
-      val computedLogMessage = message()
-      error { computedLogMessage }
+    val computedLogMessage = message()
+    error { computedLogMessage }
   }
 }
 
@@ -62,8 +62,8 @@ public actual inline fun KLogger.errorInlined(message: LazyLogMessage): Unit {
  */
 public actual inline fun KLogger.errorInlined(throwable: Throwable, message: LazyLogMessage): Unit {
   if (KotlinLoggingLevel.ERROR.isLoggingEnabled()) {
-      val computedLogMessage = message()
-      error(throwable) { computedLogMessage }
+    val computedLogMessage = message()
+    error(throwable) { computedLogMessage }
   }
 }
 
@@ -72,8 +72,8 @@ public actual inline fun KLogger.errorInlined(throwable: Throwable, message: Laz
  */
 public actual inline fun KLogger.infoInlined(message: LazyLogMessage): Unit {
   if (KotlinLoggingLevel.INFO.isLoggingEnabled()) {
-      val computedLogMessage = message()
-      info { computedLogMessage }
+    val computedLogMessage = message()
+    info { computedLogMessage }
   }
 }
 
@@ -82,8 +82,8 @@ public actual inline fun KLogger.infoInlined(message: LazyLogMessage): Unit {
  */
 public actual inline fun KLogger.infoInlined(throwable: Throwable, message: LazyLogMessage): Unit {
   if (KotlinLoggingLevel.INFO.isLoggingEnabled()) {
-      val computedLogMessage = message()
-      info(throwable) { computedLogMessage }
+    val computedLogMessage = message()
+    info(throwable) { computedLogMessage }
   }
 }
 
@@ -92,8 +92,8 @@ public actual inline fun KLogger.infoInlined(throwable: Throwable, message: Lazy
  */
 public actual inline fun KLogger.warnInlined(message: LazyLogMessage): Unit {
   if (KotlinLoggingLevel.WARN.isLoggingEnabled()) {
-      val computedLogMessage = message()
-      warn { computedLogMessage }
+    val computedLogMessage = message()
+    warn { computedLogMessage }
   }
 }
 
@@ -102,7 +102,7 @@ public actual inline fun KLogger.warnInlined(message: LazyLogMessage): Unit {
  */
 public actual inline fun KLogger.warnInlined(throwable: Throwable, message: LazyLogMessage): Unit {
   if (KotlinLoggingLevel.WARN.isLoggingEnabled()) {
-      val computedLogMessage = message()
-      warn(throwable) { computedLogMessage }
+    val computedLogMessage = message()
+    warn(throwable) { computedLogMessage }
   }
 }
