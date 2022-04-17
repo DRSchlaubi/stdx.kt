@@ -11,7 +11,7 @@ private fun throwMMError(): Nothing =
     throw UnsupportedOperationException("suspendLazy only supports the new memory model")
 
 /**
- * Creates a [SuspendLazy] implementation using [LazyThreadSafetyMode.SYNCHRONIZED] as JS doesn't provide thread safety.
+ * Creates a [SuspendLazy] implementation using [LazyThreadSafetyMode.SYNCHRONIZED].
  *
  * **Memory info:** This requires using [the new memory model](https://blog.jetbrains.com/kotlin/2021/08/try-the-new-kotlin-native-memory-manager-development-preview/)
  *
@@ -36,7 +36,7 @@ public actual fun <T> suspendLazy(initializer: SuspendingInitializer<T>): Suspen
 public actual fun <T> suspendLazy(mode: LazyThreadSafetyMode, initializer: SuspendingInitializer<T>): SuspendLazy<T> =
     when (mode) {
         LazyThreadSafetyMode.SYNCHRONIZED -> if (isExperimentalMM()) SynchronizedLazyImpl(initializer) else throwMMError()
-        LazyThreadSafetyMode.PUBLICATION -> if (isExperimentalMM()) SynchronizedLazyImpl(initializer) else throwMMError()
+        LazyThreadSafetyMode.PUBLICATION -> if (isExperimentalMM()) SafePublicationLazyImpl(initializer) else throwMMError()
         LazyThreadSafetyMode.NONE -> UnsafeSuspendLazyImpl(initializer)
     }
 
