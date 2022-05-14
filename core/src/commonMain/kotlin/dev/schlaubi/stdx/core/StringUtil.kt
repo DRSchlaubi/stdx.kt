@@ -13,7 +13,7 @@ private val LIST_SEPARATOR_REGEX = ",\\s*".toRegex()
  *
  * @see isNotNumeric
  */
-public fun String.isNumeric(): Boolean = all(Char::isDigit)
+public fun CharSequence.isNumeric(): Boolean = all(Char::isDigit)
 
 /**
  * Checks whether a String is not numeric (meaning it contains an Integer)
@@ -22,7 +22,7 @@ public fun String.isNumeric(): Boolean = all(Char::isDigit)
  *
  * @see isNumeric
  */
-public inline fun String.isNotNumeric(): Boolean = !isNumeric()
+public inline fun CharSequence.isNotNumeric(): Boolean = !isNumeric()
 
 /**
  * Returns `null` if this String [isBlank] or the String itself
@@ -30,14 +30,14 @@ public inline fun String.isNotNumeric(): Boolean = !isNumeric()
  * @see isBlank
  * @see ifBlank
  */
-public fun String.nullIfBlank(): String? = ifBlank { null }
+public inline fun <C : CharSequence> C.nullIfBlank(): C? = ifBlank { null }
 
 /**
  * Returns `false` if this nullable char sequence is either `null` or empty.
  *
  * @see isNullOrEmpty
  */
-public inline fun String?.isNotNullOrEmpty(): Boolean {
+public inline fun CharSequence?.isNotNullOrEmpty(): Boolean {
     contract {
         returns(false) implies (this@isNotNullOrEmpty != null)
     }
@@ -50,7 +50,7 @@ public inline fun String?.isNotNullOrEmpty(): Boolean {
  *
  * @see isNullOrBlank
  */
-public inline fun String?.isNotNullOrBlank(): Boolean {
+public inline fun CharSequence?.isNotNullOrBlank(): Boolean {
     contract {
         returns(false) implies (this@isNotNullOrBlank != null)
     }
@@ -97,12 +97,12 @@ public fun List<String>.paginate(pageLength: Int, separator: String = "\n"): Lis
 /**
  * Splits a comma seperated list.
  */
-public fun String.splitList(): List<String> = split(LIST_SEPARATOR_REGEX)
+public fun CharSequence.splitList(): List<String> = split(LIST_SEPARATOR_REGEX)
 
 /**
  * Splits a comma seperated list.
  */
-public fun String.splitListStrict(): List<String> = split(',')
+public fun CharSequence.splitListStrict(): List<String> = split(',')
 
 /**
  * Limits this string to [maxLength] and adds [truncate] at the end if the string was shortened-
@@ -112,3 +112,8 @@ public fun String.limit(maxLength: Int, truncate: String = "..."): String = if (
 } else {
     this
 }
+
+/**
+ * Removes all lines and replaces them with [separator].
+ */
+public fun CharSequence.removeLineBreaks(separator: String = " "): String = lines().joinToString(separator)

@@ -7,22 +7,28 @@ public final class dev/schlaubi/stdx/core/CollectionUtilKt {
 	public static final fun onEach (Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)V
 }
 
+public final class dev/schlaubi/stdx/core/PathUtilKt {
+	public static final fun parent (Ljava/nio/file/Path;I)Ljava/nio/file/Path;
+}
+
 public final class dev/schlaubi/stdx/core/StringUtilJvm {
 	public static final fun hash (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 	public static final fun sha256 (Ljava/lang/String;)Ljava/lang/String;
 }
 
 public final class dev/schlaubi/stdx/core/StringUtilKt {
-	public static final fun isNotNullOrBlank (Ljava/lang/String;)Z
-	public static final fun isNotNullOrEmpty (Ljava/lang/String;)Z
-	public static final fun isNotNumeric (Ljava/lang/String;)Z
-	public static final fun isNumeric (Ljava/lang/String;)Z
+	public static final fun isNotNullOrBlank (Ljava/lang/CharSequence;)Z
+	public static final fun isNotNullOrEmpty (Ljava/lang/CharSequence;)Z
+	public static final fun isNotNumeric (Ljava/lang/CharSequence;)Z
+	public static final fun isNumeric (Ljava/lang/CharSequence;)Z
 	public static final fun limit (Ljava/lang/String;ILjava/lang/String;)Ljava/lang/String;
 	public static synthetic fun limit$default (Ljava/lang/String;ILjava/lang/String;ILjava/lang/Object;)Ljava/lang/String;
-	public static final fun nullIfBlank (Ljava/lang/String;)Ljava/lang/String;
+	public static final fun nullIfBlank (Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
 	public static final fun paginate (Ljava/util/List;ILjava/lang/String;)Ljava/util/List;
 	public static synthetic fun paginate$default (Ljava/util/List;ILjava/lang/String;ILjava/lang/Object;)Ljava/util/List;
-	public static final fun splitList (Ljava/lang/String;)Ljava/util/List;
-	public static final fun splitListStrict (Ljava/lang/String;)Ljava/util/List;
+	public static final fun removeLineBreaks (Ljava/lang/CharSequence;Ljava/lang/String;)Ljava/lang/String;
+	public static synthetic fun removeLineBreaks$default (Ljava/lang/CharSequence;Ljava/lang/String;ILjava/lang/Object;)Ljava/lang/String;
+	public static final fun splitList (Ljava/lang/CharSequence;)Ljava/util/List;
+	public static final fun splitListStrict (Ljava/lang/CharSequence;)Ljava/util/List;
 }
 

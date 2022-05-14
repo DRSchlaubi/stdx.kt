@@ -11,3 +11,7 @@ public final class dev/schlaubi/stdx/logging/InlinedLoggerKt {
 	public static final fun warnInlined (Lmu/KLogger;Lkotlin/jvm/functions/Function0;)V
 }
 
+public final class dev/schlaubi/stdx/logging/LoggerNameUtilKt {
+	public static final fun logger ()Lmu/KLogger;
+}
+

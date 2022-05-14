@@ -3,6 +3,7 @@ import dev.schlaubi.stdx.core.isNumeric
 import dev.schlaubi.stdx.core.limit
 import dev.schlaubi.stdx.core.nullIfBlank
 import dev.schlaubi.stdx.core.paginate
+import dev.schlaubi.stdx.core.removeLineBreaks
 import dev.schlaubi.stdx.core.splitList
 import dev.schlaubi.stdx.core.splitListStrict
 import kotlin.test.Test
@@ -113,5 +114,22 @@ class StringUtilTest {
 
         assertTrue(longString.limit(limit).length <= limit)
         assertSame(longString.limit(longString.length), longString)
+    }
+
+    @Test
+    fun testLineBreaks() {
+        val multiLineString = buildString {
+            repeat(5) {
+                appendLine("test")
+            }
+        }
+        val nonMultilineString = buildString {
+            repeat(5) {
+                append("test")
+                append(" ")
+            }
+        }
+
+        assertEquals(nonMultilineString, multiLineString.removeLineBreaks())
     }
 }
