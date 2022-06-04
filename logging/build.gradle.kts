@@ -22,7 +22,7 @@ kotlin {
                 api("io.github.microutils", "kotlin-logging", "2.1.21")
             }
         }
-        jvmTest {
+        findByName("jvmTest")?.apply {
             dependencies {
                 implementation("org.slf4j", "slf4j-simple", "1.7.36")
             }

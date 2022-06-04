@@ -7,13 +7,15 @@ public final class dev/schlaubi/stdx/core/CollectionUtilKt {
 	public static final fun onEach (Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)V
 }
 
-public final class dev/schlaubi/stdx/core/PathUtilKt {
-	public static final fun parent (Ljava/nio/file/Path;I)Ljava/nio/file/Path;
+public final class dev/schlaubi/stdx/core/HashUtilJvm {
+	public static final fun hash (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+	public static final fun hash ([BLjava/lang/String;)Ljava/lang/String;
+	public static final fun sha256 (Ljava/lang/String;)Ljava/lang/String;
+	public static final fun sha256 ([B)Ljava/lang/String;
 }
 
-public final class dev/schlaubi/stdx/core/StringUtilJvm {
-	public static final fun hash (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-	public static final fun sha256 (Ljava/lang/String;)Ljava/lang/String;
+public final class dev/schlaubi/stdx/core/PathUtilKt {
+	public static final fun parent (Ljava/nio/file/Path;I)Ljava/nio/file/Path;
 }
 
 public final class dev/schlaubi/stdx/core/StringUtilKt {
