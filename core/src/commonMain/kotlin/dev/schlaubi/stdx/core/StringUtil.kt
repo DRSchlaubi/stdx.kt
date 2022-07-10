@@ -39,7 +39,7 @@ public inline fun <C : CharSequence> C.nullIfBlank(): C? = ifBlank { null }
  */
 public inline fun CharSequence?.isNotNullOrEmpty(): Boolean {
     contract {
-        returns(false) implies (this@isNotNullOrEmpty != null)
+        returns(true) implies (this@isNotNullOrEmpty != null)
     }
 
     return !isNullOrEmpty()
@@ -52,7 +52,7 @@ public inline fun CharSequence?.isNotNullOrEmpty(): Boolean {
  */
 public inline fun CharSequence?.isNotNullOrBlank(): Boolean {
     contract {
-        returns(false) implies (this@isNotNullOrBlank != null)
+        returns(true) implies (this@isNotNullOrBlank != null)
     }
 
     return !isNullOrBlank()
