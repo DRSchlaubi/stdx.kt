@@ -8,7 +8,7 @@ This project aims to combine all of my utility projects and util files into a si
 |--------------------------|------------------------------------------------------|-------------------|-----|-----|--------|
 | [core](core)             | [core](https://stdx.schlau.bi/stdx-core)             | `stdx-core`       | ✅   | ✅   | ✅      |
 | [coroutines](coroutines) | [coroutines](https://stdx.schlau.bi/stdx-coroutines) | `stdx-coroutines` | ✅   | ✅   | ✅      |
-| [envconf](coroutines)    | [envconf](https://stdx.schlau.bi/stdx-envconf)       | `stdx-envconf`    | ✅   | ✅²  | ✅¹     |
+| [envconf](envconf)       | [envconf](https://stdx.schlau.bi/stdx-envconf)       | `stdx-envconf`    | ✅   | ✅²  | ✅¹     |
 | [logging](logging)       | [logging](https://stdx.schlau.bi/stdx-logging)       | `stdx-envconf`    | ✅   | ✅   | ✅¹     |
 
 ¹ Except for tvOS, watchOS and iOS
