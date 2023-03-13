@@ -29,7 +29,8 @@ internal class LocalTimeSerializationTests {
     @Test
     fun `Serialize LocalTime to and from bson`() {
         KBson.default.testSerializer(
-            LocalTimeWrapper(LocalTime.now()), LocalTimeWrapper.serializer()
+            LocalTimeWrapper(LocalTime.now()),
+            LocalTimeWrapper.serializer()
         )
     }
 }

@@ -29,7 +29,8 @@ internal class LocalDateSerializationTests {
     @Test
     fun `Serialize LocalDate to and from bson`() {
         KBson.default.testSerializer(
-            LocalDateWrapper(LocalDate.now()), LocalDateWrapper.serializer()
+            LocalDateWrapper(LocalDate.now()),
+            LocalDateWrapper.serializer()
         )
     }
 }

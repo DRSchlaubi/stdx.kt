@@ -1,4 +1,4 @@
-import dev.schlaubi.envconf.environment
+import dev.schlaubi.envconf.Environment
 import dev.schlaubi.envconf.getEnv
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -15,28 +15,28 @@ class PlainTest {
 
     @Test
     fun testSimpleValueWithShortcut() {
-        val HELLO by environment
+        val HELLO by Environment
 
         assertEquals(HELLO, "HELLO")
     }
 
     @Test
     fun testSimpleValueWithTransform() {
-        val HELLO by getEnv { it.lowercase() }
+        val HELLO by getEnv(transform = String::lowercase)
 
         assertEquals(HELLO, "hello")
     }
 
     @Test
     fun testSimpleValueWithPrefix() {
-        val HELLO by getEnv("PREFIX_") { it.lowercase() }
+        val HELLO by getEnv("PREFIX_", transform = String::lowercase)
 
         assertEquals(HELLO, "hello")
     }
 
     @Test
     fun testSimpleValueWithDefault() {
-        val HELLO by environment
+        val HELLO by Environment
         val HELLO2 by getEnv(default = "HELLO")
 
         assertEquals(HELLO, "HELLO")
