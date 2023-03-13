@@ -10,8 +10,23 @@ import kotlin.reflect.KProperty
  *val PORT by environment
  * ```
  */
+@Deprecated("Replaced by Environment object", ReplaceWith("Environment", "dev.schlaubi.envconf.Environment"))
 public val environment: EnvironmentVariable<String>
     get() = getEnv()
+
+/**
+ * Object to access Environment variables.
+ *
+ * ```kotlin
+ * val PORT by environment
+ * ```
+ */
+public object Environment {
+    /**
+     * See [Environment] for usage.
+     */
+    public operator fun provideDelegate(thisRef: Any?, property: KProperty<*>): EnvironmentVariable<String> = getEnv()
+}
 
 /**
  * Returns a delegated environment variable prefixed by [prefix] that fallbacks to [default] if the found variable is empty or invalid

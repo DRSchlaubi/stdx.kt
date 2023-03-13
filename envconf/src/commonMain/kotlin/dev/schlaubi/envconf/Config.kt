@@ -1,5 +1,7 @@
 package dev.schlaubi.envconf
 
+import kotlin.reflect.KProperty
+
 /**
  * Helper class that allows you to specify a [prefix] for your whole config.
  *
@@ -19,8 +21,22 @@ public open class Config constructor(private val prefix: String = "") {
      * }
      * ```
      */
+    @Deprecated("Replaced by provideDelegate", ReplaceWith("this"))
     protected val environment: EnvironmentVariable<String>
         get() = getEnv()
+
+    /**
+     * Shortcut to make API usable like this
+     *
+     * ```kotlin
+     * class Config : EConfig("prefix") {
+     *
+     *    val PORT by this
+     *
+     * }
+     * ```
+     */
+    public operator fun provideDelegate(thisRef: Any?, property: KProperty<*>): EnvironmentVariable<String> = getEnv()
 
     /**
      * Calls [getEnv] with [prefix] applied to it.
