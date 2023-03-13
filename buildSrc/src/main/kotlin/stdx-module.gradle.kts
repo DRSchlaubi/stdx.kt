@@ -35,7 +35,7 @@ kotlin {
             }
         }
 
-        findByName("jsTest")?.apply  {
+        findByName("jsTest")?.apply {
             dependencies {
                 implementation(kotlin("test-js"))
             }
@@ -91,7 +91,7 @@ tasks {
 
 kotlin {
     jvmToolchain {
-        (this as DefaultToolchainSpec).languageVersion.set(JavaLanguageVersion.of(17))
+        (this as DefaultToolchainSpec).languageVersion.set(JavaLanguageVersion.of(19))
     }
 }
 
@@ -100,14 +100,12 @@ java {
 }
 
 fun KotlinMultiplatformExtension.configureTargets() {
-    if (runMainCI) { // Only run non native builds on linux in CI
-        jvm {
-            compilations.all {
-                kotlinOptions.jvmTarget = "1.8"
-            }
-            testRuns["test"].executionTask.configure {
-                useJUnitPlatform()
-            }
+    jvm {
+        compilations.all {
+            kotlinOptions.jvmTarget = "1.8"
+        }
+        testRuns["test"].executionTask.configure {
+            useJUnitPlatform()
         }
     }
 }

@@ -19,6 +19,7 @@ internal class BinarySerializationTests {
     @Test
     fun `Deserialize uuid from json`() {
         val uuid = UUID.randomUUID()
+
         @Language("JSON")
         val jsonText =
             """{"mostSignificantBits":${uuid.mostSignificantBits},"leastSignificantBits":"${uuid.leastSignificantBits}"}"""
