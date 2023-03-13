@@ -7,6 +7,12 @@ public class dev/schlaubi/envconf/Config {
 	public static synthetic fun getEnv$default (Ldev/schlaubi/envconf/Config;Ljava/lang/Object;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Ldev/schlaubi/envconf/EnvironmentVariable;
 	public static synthetic fun getEnv$default (Ldev/schlaubi/envconf/Config;Ljava/lang/String;ILjava/lang/Object;)Ldev/schlaubi/envconf/EnvironmentVariable;
 	protected final fun getEnvironment ()Ldev/schlaubi/envconf/EnvironmentVariable;
+	public final fun provideDelegate (Ljava/lang/Object;Lkotlin/reflect/KProperty;)Ldev/schlaubi/envconf/EnvironmentVariable;
+}
+
+public final class dev/schlaubi/envconf/Environment {
+	public static final field INSTANCE Ldev/schlaubi/envconf/Environment;
+	public final fun provideDelegate (Ljava/lang/Object;Lkotlin/reflect/KProperty;)Ldev/schlaubi/envconf/EnvironmentVariable;
 }
 
 public final class dev/schlaubi/envconf/EnvironmentConfigKt {
