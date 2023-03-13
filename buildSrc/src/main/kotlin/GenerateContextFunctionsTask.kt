@@ -1,22 +1,15 @@
-import com.squareup.kotlinpoet.ClassName
-import com.squareup.kotlinpoet.FunSpec
-import com.squareup.kotlinpoet.KModifier
-import com.squareup.kotlinpoet.LambdaTypeName
+import com.squareup.kotlinpoet.*
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
-import com.squareup.kotlinpoet.TypeAliasSpec
-import com.squareup.kotlinpoet.TypeVariableName
 import org.gradle.api.tasks.TaskAction
+import java.util.*
+import kotlin.collections.ArrayList
 
-const val returnTypeParameter = "ReturnType"
 
 abstract class GenerateContextFunctionsTask : AbstractGenerateFilesTask() {
+    @OptIn(ExperimentalKotlinPoetApi::class)
     @TaskAction
     fun generate() {
-        generateFile("common", "ContextFunctions", {
-            it.replace("import `?lambda_A(, [A-Z])*`?\n".toRegex(), "")
-                .replaceFirst("lambda_A", "A.() -> ReturnType")
-                .replace("`lambda_A(?:, ((?:(?:, )?[A-Z])*)`)?".toRegex(), "context($1) A.() -> ReturnType")
-        }) {
+        generateFile("common", "ContextFunctions") {
             addImport("kotlin.contracts", "InvocationKind", "contract")
 
             val alphabet = ('A'..'Z').toList()
@@ -26,21 +19,18 @@ abstract class GenerateContextFunctionsTask : AbstractGenerateFilesTask() {
             repeat(alphabet.size) {
                 val count = it + 1
                 val current = alphabet.take(count)
-                val typeVariables = (current.map(Char::toString) + returnTypeParameter).map { name ->
+                val returnTypeParameter = TypeVariableName("ReturnType")
+                val typeVariables = (current.map(Char::toString)).map { name ->
                     TypeVariableName(name)
-                }
+                } + returnTypeParameter
 
-                val lambdaRaw = LambdaTypeName.get(
-                    typeVariables.first(),
-                    returnType = typeVariables.last()
-                ).toString()
-
-                val lambda = "lambda_${typeVariables.dropLast(1).joinToString(", ") { variable -> variable.name }}"
-
+                val (receiver) = typeVariables
+                val contextReceivers = typeVariables.subList(1, typeVariables.size - 1)
+                val lambda = LambdaTypeName.get(receiver = receiver, returnType = returnTypeParameter, contextReceivers = contextReceivers)
                 val typeAlias = ClassName(packageName, "ContextReceiver$count")
 
                 addTypeAlias(
-                    TypeAliasSpec.builder(typeAlias.simpleName, ClassName("", lambda))
+                    TypeAliasSpec.builder(typeAlias.simpleName, lambda)
                         .addModifiers(KModifier.PUBLIC)
                         .addTypeVariables(typeVariables)
                         .addKdoc(
@@ -54,7 +44,7 @@ abstract class GenerateContextFunctionsTask : AbstractGenerateFilesTask() {
 
                 val argumentList = if (count > 1) {
                     (typeVariables.subList(1, typeVariables.size - 1)
-                        .map { variable -> variable.name.toLowerCase() } + 'a').joinToString(
+                        .map { variable -> variable.name.lowercase(Locale.getDefault()) } + 'a').joinToString(
                         ", "
                     )
                 } else {
@@ -66,7 +56,7 @@ abstract class GenerateContextFunctionsTask : AbstractGenerateFilesTask() {
                     .addTypeVariables(typeVariables)
                     .apply {
                         typeVariables.dropLast(1).forEach { type ->
-                            addParameter(type.name.toLowerCase(), type)
+                            addParameter(type.name.lowercase(Locale.getDefault()), type)
                         }
                     }
                     .addParameter("block", typeAlias.parameterizedBy(typeVariables))
@@ -75,7 +65,7 @@ abstract class GenerateContextFunctionsTask : AbstractGenerateFilesTask() {
                         """
                         Adds ${
                             typeVariables.dropLast(1)
-                                .joinToString("], [", "[", "]") { it.name.toLowerCase() }
+                                .joinToString("], [", "[", "]") { it.name.lowercase(Locale.getDefault()) }
                         } to the context of [block] and returns its return value.
                         """.trimIndent()
                     )
