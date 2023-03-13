@@ -14,7 +14,7 @@ kotlin {
 
         commonMain {
             dependencies {
-                api(project.dependencies.platform("org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.6.0-native-mt"))
+                api(project.dependencies.platform("org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.6.4"))
                 api("org.jetbrains.kotlinx", "kotlinx-coroutines-core")
             }
         }

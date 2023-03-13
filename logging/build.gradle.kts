@@ -19,12 +19,12 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                api("io.github.microutils", "kotlin-logging", "2.1.21")
+                api("io.github.microutils", "kotlin-logging", "3.0.4")
             }
         }
         findByName("jvmTest")?.apply {
             dependencies {
-                implementation("org.slf4j", "slf4j-simple", "1.7.36")
+                implementation("org.slf4j", "slf4j-simple", "2.0.6")
             }
         }
     }

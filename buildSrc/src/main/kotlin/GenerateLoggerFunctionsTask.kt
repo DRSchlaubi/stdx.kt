@@ -7,6 +7,7 @@ import org.gradle.api.provider.ListProperty
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.TaskAction
 import org.intellij.lang.annotations.Language
+import java.util.*
 
 abstract class GenerateLoggerFunctionsTask : AbstractGenerateFilesTask() {
 
@@ -30,7 +31,7 @@ abstract class GenerateLoggerFunctionsTask : AbstractGenerateFilesTask() {
         generateFile("jvm", "InlinedLogger") {
             generateLoggerFunctions { level, functionName ->
                 // e.g debug -> isDebugEnabled
-                val enabledPropertyName = "is${level[0].toUpperCase()}${level.drop(1)}Enabled"
+                val enabledPropertyName = "is${level[0].uppercaseChar()}${level.drop(1)}Enabled"
 
                 debugLevelInlined(functionName, level, KModifier.ACTUAL) {
                     val code = """
@@ -64,7 +65,7 @@ abstract class GenerateLoggerFunctionsTask : AbstractGenerateFilesTask() {
             generateLoggerFunctions { level, functionName ->
                 @Language("kotlin")
                 fun code(call: String) = """
-                                if (KotlinLoggingLevel.${level.toUpperCase()}.isLoggingEnabled()) {
+                                if (KotlinLoggingLevel.${level.uppercase(Locale.getDefault())}.isLoggingEnabled()) {
                                     val computedLogMessage = message()
                                     $call
                                 }

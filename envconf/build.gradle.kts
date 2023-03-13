@@ -1,7 +1,4 @@
-import org.jetbrains.kotlin.gradle.internal.testing.TCServiceMessagesTestExecutionSpec
 import org.jetbrains.kotlin.gradle.targets.js.testing.KotlinJsTest
-import org.jetbrains.kotlin.gradle.targets.js.testing.KotlinJsTestFramework
-import org.jetbrains.kotlin.gradle.targets.js.testing.mocha.KotlinMocha
 import org.jetbrains.kotlin.gradle.targets.native.tasks.KotlinNativeSimulatorTest
 import org.jetbrains.kotlin.gradle.targets.native.tasks.KotlinNativeTest
 
@@ -15,13 +12,23 @@ plugins {
 
 val testEnv = mapOf("HELLO" to "HELLO", "PREFIX_HELLO" to "HELLO")
 
+kotlin {
+    sourceSets {
+        jsMain {
+            dependencies {
+                implementation("org.jetbrains.kotlin-wrappers:kotlin-node:18.14.6-pre.510")
+            }
+        }
+    }
+}
+
 tasks {
     withType<Test> {
         environment(testEnv)
     }
 
     withType<KotlinJsTest> {
-        testFramework = EnvConfJsTestFramework(KotlinMocha(compilation, path))
+        environment = testEnv.toMutableMap()
     }
 
     withType<KotlinNativeTest> {
@@ -30,22 +37,5 @@ tasks {
 
     withType<KotlinNativeSimulatorTest> {
         enabled = false
-    }
-}
-
-
-class EnvConfJsTestFramework(
-    private val delegate: KotlinJsTestFramework
-) : KotlinJsTestFramework by delegate {
-    override fun createTestExecutionSpec(
-        task: KotlinJsTest,
-        forkOptions: ProcessForkOptions,
-        nodeJsArgs: MutableList<String>,
-        debug: Boolean
-    ): TCServiceMessagesTestExecutionSpec {
-        val newProcessForkOptions = forkOptions.apply {
-            environment = testEnv
-        }
-        return delegate.createTestExecutionSpec(task, newProcessForkOptions, nodeJsArgs, debug)
     }
 }

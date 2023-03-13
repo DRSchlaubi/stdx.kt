@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.plugin.KotlinTarget
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 import org.jetbrains.kotlin.konan.target.HostManager
 import org.jetbrains.kotlin.konan.target.KonanTarget
-import java.util.Base64
+import java.util.*
 
 plugins {
     `maven-publish`
@@ -110,4 +110,4 @@ tasks {
     }
 }
 
-fun KotlinTarget.publicationName() = targetName.take(1).toUpperCase() + targetName.drop(1)
+fun KotlinTarget.publicationName() = targetName.take(1).uppercase(Locale.getDefault()) + targetName.drop(1)

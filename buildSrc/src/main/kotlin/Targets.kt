@@ -1,12 +1,12 @@
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
-fun KotlinMultiplatformExtension.fullJs() = js(BOTH) {
+fun KotlinMultiplatformExtension.fullJs() = js(IR) {
     browser()
     nodejs()
 }
 
-fun KotlinMultiplatformExtension.nodeJs() = js(BOTH) {
+fun KotlinMultiplatformExtension.nodeJs() = js(IR) {
     nodejs()
 }
 

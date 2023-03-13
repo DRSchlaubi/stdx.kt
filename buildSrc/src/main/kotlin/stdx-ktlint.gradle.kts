@@ -3,7 +3,6 @@ plugins {
 }
 
 ktlint {
-    disabledRules.add("no-wildcard-imports")
     filter {
         exclude { element ->
             val path = element.file.absolutePath
