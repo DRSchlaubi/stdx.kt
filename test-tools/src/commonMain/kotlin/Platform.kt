@@ -6,6 +6,7 @@ public expect object Platform {
      * Whether this test runs in the browser.
      */
     public val isBrowser: Boolean
+
     /**
      * Whether this test runs in NodeJS.
      */

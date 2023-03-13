@@ -53,7 +53,7 @@ public suspend fun <T, S> Collection<T>.parallelMapIndexed(
     maxConcurrentRequests: Int? = null,
     mapper: suspend (index: Int, T) -> S
 ): List<S> {
-    val semaphore = maxConcurrentRequests?.let { Semaphore(it) }
+    val semaphore = maxConcurrentRequests?.let(::Semaphore)
 
     val result = coroutineScope {
         mapIndexed { index, item ->
