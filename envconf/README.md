@@ -4,7 +4,7 @@ Kotlin library which makes it easy to use env variables for configs
 # Examples
 ```kotlin
 // this gets the env variable "HELLO"
-val HELLO by environment
+val HELLO by Environment
 
 // this gets the env variable "HELLO_COUNT" and converts it into an int
 val HELLO_COUNT by getEnv { it.toInt() }

@@ -23,7 +23,7 @@ If you want to add all modules use the `stdx-full` dependency
 
 ```kotlin
 dependencies {
-    implementation(platform("dev.schlaubi:stdx-bom:1.0.1"))
+    implementation(platform("dev.schlaubi:stdx-bom:1.3.0"))
     // Then for each module
     implementation("dev.schlaubi", "stdx-core")
 }
@@ -36,7 +36,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation platform("dev.schlaubi:stdx-bom:1.0.1")
+    implementation platform("dev.schlaubi:stdx-bom:1.3.0")
     // Then for each module
     implementation 'dev.schlaubi:stdx-core'
 }
@@ -55,7 +55,7 @@ dependencies {
             <groupId>dev.schlaubi</groupId>
             <!--core or any other module -->
             <artifactId>stdx-core-jvm</artifactId>
-            <version>1.0.1</version>
+            <version>1.3.0</version>
         </dependency>
     </dependencies>
 </project>
