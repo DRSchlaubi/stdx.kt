@@ -1,319 +1,323 @@
+<!doctype html>
 <html>
-  <head>
+<head>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <title>dev.schlaubi.stdx.core</title>
-</head><body><link href="../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../";</script>
-    <script type="text/javascript" src="../../scripts/sourceset_dependencies.js" async></script><link href="../../styles/style.css" rel="Stylesheet"><link href="../../styles/jetbrains-mono.css" rel="Stylesheet"><link href="../../styles/main.css" rel="Stylesheet"><link href="../../styles/prism.css" rel="Stylesheet"><link href="../../styles/logo-styles.css" rel="Stylesheet"><script type="text/javascript" src="../../scripts/clipboard.js" async></script><script type="text/javascript" src="../../scripts/navigation-loader.js" async></script><script type="text/javascript" src="../../scripts/platform-content-handler.js" async></script><script type="text/javascript" src="../../scripts/main.js" defer></script><script type="text/javascript" src="../../scripts/prism.js" async></script><script>const storage = localStorage.getItem("dokka-dark-mode")
-const savedDarkMode = storage ? JSON.parse(storage) : false
-if(savedDarkMode === true){
-    document.getElementsByTagName("html")[0].classList.add("theme-dark")
-}</script>
-
-  
-    <div class="navigation-wrapper" id="navigation-wrapper">
-      <div id="leftToggler"><span class="icon-toggler"></span></div>
-      <div class="library-name"><a href="../../index.html"><span>stdx-kt</span></a></div>
-      <div>1.2.1</div>
-      <div class="pull-right d-flex">
-        <div class="filter-section" id="filter-section"><button class="platform-tag platform-selector common-like" data-active="" data-filter=":stdx-core:dokkaHtmlPartial/commonMain">common</button><button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":stdx-core:dokkaHtmlPartial/jvmMain">jvm</button></div>
-<button id="theme-toggle-button"><span id="theme-toggle"></span></button>
-        <div id="searchBar"></div>
-      </div>
+<link href="../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../styles/style.css" rel="Stylesheet">
+<link href="../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../styles/main.css" rel="Stylesheet">
+<link href="../../styles/prism.css" rel="Stylesheet">
+<link href="../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../index.html">
+<span>stdx-kt</span>            </a>    </div>
+    <div>1.3.0
     </div>
-    <div id="container">
-      <div id="leftColumn">
+    <div class="pull-right d-flex">
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector common-like" data-active="" data-filter=":stdx-core:dokkaHtmlPartial/commonMain">common</button>
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":stdx-core:dokkaHtmlPartial/jvmMain">jvm</button>
+        </div>
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
         <div id="sideMenu"></div>
-      </div>
-      <div id="main">
-        <div class="main-content" id="content" pageids="stdx-core::dev.schlaubi.stdx.core////PointingToDeclaration//869314662">
-          <div class="breadcrumbs"><a href="../index.html">stdx-core</a>/<a href="index.html">dev.schlaubi.stdx.core</a></div>
-          <div class="cover ">
-            <h1 class="cover"><span><span>Package</span></span> <span>dev.</span><wbr><span>schlaubi.</span><wbr><span>stdx.</span><wbr><span>core</span></h1>
-          </div>
-          <div class="tabbedcontent">
-            <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Functions">Functions</button></div>
-            <div class="tabs-section-body">
-              <h2 class="">Functions</h2>
-              <div class="table" data-togglable="Functions"><a data-name="-592206890%2FFunctions%2F-315873330" anchor-label="computeIfAbsent" id="-592206890%2FFunctions%2F-315873330" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain"></a>
-                <div class="table-row" data-filterable-current=":stdx-core:dokkaHtmlPartial/commonMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex">
-                        <div><a href="compute-if-absent.html"><span>compute</span><wbr><span>If</span><wbr><span><span>Absent</span></span></a></div>
+    </div>
+    <div id="main">
+<div class="main-content" data-page-type="package" id="content" pageids="stdx-core::dev.schlaubi.stdx.core////PointingToDeclaration//869314662">
+  <div class="breadcrumbs"><a href="../index.html">stdx-core</a><span class="delimiter">/</span><span class="current">dev.schlaubi.stdx.core</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>Package-level</span></span> <span><span>declarations</span></span></h1>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="FUNCTION,EXTENSION_FUNCTION">Functions</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="EXTENSION_FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="-592206890%2FFunctions%2F-315873330" anchor-label="computeIfAbsent" id="-592206890%2FFunctions%2F-315873330" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":stdx-core:dokkaHtmlPartial/commonMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="compute-if-absent.html"><span>compute</span><wbr><span>If</span><wbr><span><span>Absent</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-592206890%2FFunctions%2F-315873330"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
-                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":stdx-core:dokkaHtmlPartial/commonMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":stdx-core:dokkaHtmlPartial/commonMain">common</button></div>
-<div class="content sourceset-depenent-content" data-active="" data-togglable=":stdx-core:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="compute-if-absent.html">K</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="compute-if-absent.html">E</a><span class="token operator">&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-map/index.html">MutableMap</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="compute-if-absent.html">K</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="compute-if-absent.html">E</a><span class="token operator">&gt;</span><span class="token punctuation">.</span><a href="compute-if-absent.html"><span class="token function">computeIfAbsent</span></a><span class="token punctuation">(</span>key<span class="token operator">: </span><a href="compute-if-absent.html">K</a><span class="token punctuation">, </span>initializer<span class="token operator">: </span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="compute-if-absent.html">E</a><span class="token punctuation">)</span><span class="token operator">: </span><a href="compute-if-absent.html">E</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">Retrieves the element corresponding to <a href="compute-if-absent.html">key</a> from this map if it already exists or creates it by calling <a href="compute-if-absent.html">initializer</a> and saving the result to the map</p></div></div>                        </div>
-                      </div>
-                    </div>
-                  </div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stdx-core:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="compute-if-absent.html">K</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="compute-if-absent.html">E</a><span class="token operator">&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-map/index.html">MutableMap</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="compute-if-absent.html">K</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="compute-if-absent.html">E</a><span class="token operator">&gt;</span><span class="token punctuation">.</span><a href="compute-if-absent.html"><span class="token function">computeIfAbsent</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">key<span class="token operator">: </span><a href="compute-if-absent.html">K</a><span class="token punctuation">, </span></span><span class="parameter ">initializer<span class="token operator">: </span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="compute-if-absent.html">E</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="compute-if-absent.html">E</a></div><div class="brief "><p class="paragraph">Retrieves the element corresponding to <a href="compute-if-absent.html">key</a> from this map if it already exists or creates it by calling <a href="compute-if-absent.html">initializer</a> and saving the result to the map</p></div></div></div>
                 </div>
+              </div>
+            </div>
+          </div>
 <a data-name="298491920%2FFunctions%2F972264296" anchor-label="hash" id="298491920%2FFunctions%2F972264296" data-filterable-set=":stdx-core:dokkaHtmlPartial/jvmMain"></a>
-                <div class="table-row" data-filterable-current=":stdx-core:dokkaHtmlPartial/jvmMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/jvmMain">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex">
-                        <div><a href="hash.html"><span><span>hash</span></span></a></div>
+          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":stdx-core:dokkaHtmlPartial/jvmMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/jvmMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="hash.html"><span><span>hash</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="298491920%2FFunctions%2F972264296"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
-                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark jvm-like" data-filterable-current=":stdx-core:dokkaHtmlPartial/jvmMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/jvmMain" data-active="" data-toggle=":stdx-core:dokkaHtmlPartial/jvmMain">jvm</button></div>
-<div class="content sourceset-depenent-content" data-active="" data-togglable=":stdx-core:dokkaHtmlPartial/jvmMain"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">.</span><a href="hash.html"><span class="token function">hash</span></a><span class="token punctuation">(</span>algorithm<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">Hashes this <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a> using <a href="hash.html">algorithm</a>.</p></div><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">.</span><a href="hash.html"><span class="token function">hash</span></a><span class="token punctuation">(</span>algorithm<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">Hashes this <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a> using <a href="hash.html">algorithm</a>.</p></div></div>                        </div>
-                      </div>
-                    </div>
-                  </div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":stdx-core:dokkaHtmlPartial/jvmMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/jvmMain" data-active="" data-toggle=":stdx-core:dokkaHtmlPartial/jvmMain">jvm</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":stdx-core:dokkaHtmlPartial/jvmMain"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">.</span><a href="hash.html"><span class="token function">hash</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">algorithm<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">Hashes this <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a> using <a href="hash.html">algorithm</a>.</p></div><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">.</span><a href="hash.html"><span class="token function">hash</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">algorithm<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">Hashes this <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a> using <a href="hash.html">algorithm</a>.</p></div></div>                  </div>
                 </div>
+              </div>
+            </div>
+          </div>
 <a data-name="782125669%2FFunctions%2F-315873330" anchor-label="isNotNullOrBlank" id="782125669%2FFunctions%2F-315873330" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain"></a>
-                <div class="table-row" data-filterable-current=":stdx-core:dokkaHtmlPartial/commonMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex">
-                        <div><a href="is-not-null-or-blank.html"><span>is</span><wbr><span>Not</span><wbr><span>Null</span><wbr><span>Or</span><wbr><span><span>Blank</span></span></a></div>
+          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":stdx-core:dokkaHtmlPartial/commonMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-not-null-or-blank.html"><span>is</span><wbr><span>Not</span><wbr><span>Null</span><wbr><span>Or</span><wbr><span><span>Blank</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="782125669%2FFunctions%2F-315873330"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
-                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":stdx-core:dokkaHtmlPartial/commonMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":stdx-core:dokkaHtmlPartial/commonMain">common</button></div>
-<div class="content sourceset-depenent-content" data-active="" data-togglable=":stdx-core:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char-sequence/index.html">CharSequence</a><span class="token operator">?</span><span class="token punctuation">.</span><a href="is-not-null-or-blank.html"><span class="token function">isNotNullOrBlank</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">Returns <code class="lang-kotlin">false</code> if this nullable char sequence is either <code class="lang-kotlin">null</code> or empty or consists solely of whitespace characters.</p></div></div>                        </div>
-                      </div>
-                    </div>
-                  </div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stdx-core:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char-sequence/index.html">CharSequence</a><span class="token operator">?</span><span class="token punctuation">.</span><a href="is-not-null-or-blank.html"><span class="token function">isNotNullOrBlank</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Returns <code class="lang-kotlin">false</code> if this nullable char sequence is either <code class="lang-kotlin">null</code> or empty or consists solely of whitespace characters.</p></div></div></div>
                 </div>
+              </div>
+            </div>
+          </div>
 <a data-name="1265301260%2FFunctions%2F-315873330" anchor-label="isNotNullOrEmpty" id="1265301260%2FFunctions%2F-315873330" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain"></a>
-                <div class="table-row" data-filterable-current=":stdx-core:dokkaHtmlPartial/commonMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex">
-                        <div><a href="is-not-null-or-empty.html"><span>is</span><wbr><span>Not</span><wbr><span>Null</span><wbr><span>Or</span><wbr><span><span>Empty</span></span></a></div>
+          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":stdx-core:dokkaHtmlPartial/commonMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-not-null-or-empty.html"><span>is</span><wbr><span>Not</span><wbr><span>Null</span><wbr><span>Or</span><wbr><span><span>Empty</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1265301260%2FFunctions%2F-315873330"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
-                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":stdx-core:dokkaHtmlPartial/commonMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":stdx-core:dokkaHtmlPartial/commonMain">common</button></div>
-<div class="content sourceset-depenent-content" data-active="" data-togglable=":stdx-core:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char-sequence/index.html">CharSequence</a><span class="token operator">?</span><span class="token punctuation">.</span><a href="is-not-null-or-empty.html"><span class="token function">isNotNullOrEmpty</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">Returns <code class="lang-kotlin">false</code> if this nullable char sequence is either <code class="lang-kotlin">null</code> or empty.</p></div></div>                        </div>
-                      </div>
-                    </div>
-                  </div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stdx-core:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char-sequence/index.html">CharSequence</a><span class="token operator">?</span><span class="token punctuation">.</span><a href="is-not-null-or-empty.html"><span class="token function">isNotNullOrEmpty</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Returns <code class="lang-kotlin">false</code> if this nullable char sequence is either <code class="lang-kotlin">null</code> or empty.</p></div></div></div>
                 </div>
+              </div>
+            </div>
+          </div>
 <a data-name="-1742266279%2FFunctions%2F-315873330" anchor-label="isNotNumeric" id="-1742266279%2FFunctions%2F-315873330" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain"></a>
-                <div class="table-row" data-filterable-current=":stdx-core:dokkaHtmlPartial/commonMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex">
-                        <div><a href="is-not-numeric.html"><span>is</span><wbr><span>Not</span><wbr><span><span>Numeric</span></span></a></div>
+          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":stdx-core:dokkaHtmlPartial/commonMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-not-numeric.html"><span>is</span><wbr><span>Not</span><wbr><span><span>Numeric</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1742266279%2FFunctions%2F-315873330"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
-                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":stdx-core:dokkaHtmlPartial/commonMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":stdx-core:dokkaHtmlPartial/commonMain">common</button></div>
-<div class="content sourceset-depenent-content" data-active="" data-togglable=":stdx-core:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char-sequence/index.html">CharSequence</a><span class="token punctuation">.</span><a href="is-not-numeric.html"><span class="token function">isNotNumeric</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">Checks whether a String is not numeric (meaning it contains an Integer)</p></div></div>                        </div>
-                      </div>
-                    </div>
-                  </div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stdx-core:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char-sequence/index.html">CharSequence</a><span class="token punctuation">.</span><a href="is-not-numeric.html"><span class="token function">isNotNumeric</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Checks whether a String is not numeric (meaning it contains an Integer)</p></div></div></div>
                 </div>
+              </div>
+            </div>
+          </div>
 <a data-name="1436192436%2FFunctions%2F-315873330" anchor-label="isNumeric" id="1436192436%2FFunctions%2F-315873330" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain"></a>
-                <div class="table-row" data-filterable-current=":stdx-core:dokkaHtmlPartial/commonMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex">
-                        <div><a href="is-numeric.html"><span>is</span><wbr><span><span>Numeric</span></span></a></div>
+          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":stdx-core:dokkaHtmlPartial/commonMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-numeric.html"><span>is</span><wbr><span><span>Numeric</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1436192436%2FFunctions%2F-315873330"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
-                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":stdx-core:dokkaHtmlPartial/commonMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":stdx-core:dokkaHtmlPartial/commonMain">common</button></div>
-<div class="content sourceset-depenent-content" data-active="" data-togglable=":stdx-core:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char-sequence/index.html">CharSequence</a><span class="token punctuation">.</span><a href="is-numeric.html"><span class="token function">isNumeric</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">Checks whether a String is numeric (meaning it contains an Integer)</p></div></div>                        </div>
-                      </div>
-                    </div>
-                  </div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stdx-core:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char-sequence/index.html">CharSequence</a><span class="token punctuation">.</span><a href="is-numeric.html"><span class="token function">isNumeric</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Checks whether a String is numeric (meaning it contains an Integer)</p></div></div></div>
                 </div>
+              </div>
+            </div>
+          </div>
 <a data-name="2101319945%2FFunctions%2F-315873330" anchor-label="limit" id="2101319945%2FFunctions%2F-315873330" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain"></a>
-                <div class="table-row" data-filterable-current=":stdx-core:dokkaHtmlPartial/commonMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex">
-                        <div><a href="limit.html"><span><span>limit</span></span></a></div>
+          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":stdx-core:dokkaHtmlPartial/commonMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="limit.html"><span><span>limit</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2101319945%2FFunctions%2F-315873330"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
-                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":stdx-core:dokkaHtmlPartial/commonMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":stdx-core:dokkaHtmlPartial/commonMain">common</button></div>
-<div class="content sourceset-depenent-content" data-active="" data-togglable=":stdx-core:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">.</span><a href="limit.html"><span class="token function">limit</span></a><span class="token punctuation">(</span>maxLength<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span>truncate<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator"> = </span><span class="token string">"..."</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">Limits this string to <a href="limit.html">maxLength</a> and adds <a href="limit.html">truncate</a> at the end if the string was shortened-</p></div></div>                        </div>
-                      </div>
-                    </div>
-                  </div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stdx-core:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">.</span><a href="limit.html"><span class="token function">limit</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">maxLength<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">truncate<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator"> = </span><span class="token string">"..."</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">Limits this string to <a href="limit.html">maxLength</a> and adds <a href="limit.html">truncate</a> at the end if the string was shortened-</p></div></div></div>
                 </div>
+              </div>
+            </div>
+          </div>
 <a data-name="712439909%2FFunctions%2F-315873330" anchor-label="nullIfBlank" id="712439909%2FFunctions%2F-315873330" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain"></a>
-                <div class="table-row" data-filterable-current=":stdx-core:dokkaHtmlPartial/commonMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex">
-                        <div><a href="null-if-blank.html"><span>null</span><wbr><span>If</span><wbr><span><span>Blank</span></span></a></div>
+          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":stdx-core:dokkaHtmlPartial/commonMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="null-if-blank.html"><span>null</span><wbr><span>If</span><wbr><span><span>Blank</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="712439909%2FFunctions%2F-315873330"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
-                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":stdx-core:dokkaHtmlPartial/commonMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":stdx-core:dokkaHtmlPartial/commonMain">common</button></div>
-<div class="content sourceset-depenent-content" data-active="" data-togglable=":stdx-core:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="null-if-blank.html">C</a><span class="token operator"> : </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char-sequence/index.html">CharSequence</a><span class="token operator">&gt; </span><a href="null-if-blank.html">C</a><span class="token punctuation">.</span><a href="null-if-blank.html"><span class="token function">nullIfBlank</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="null-if-blank.html">C</a><span class="token operator">?</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">Returns <code class="lang-kotlin">null</code> if this String isBlank or the String itself</p></div></div>                        </div>
-                      </div>
-                    </div>
-                  </div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stdx-core:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="null-if-blank.html">C</a><span class="token operator"> : </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char-sequence/index.html">CharSequence</a><span class="token operator">&gt; </span><a href="null-if-blank.html">C</a><span class="token punctuation">.</span><a href="null-if-blank.html"><span class="token function">nullIfBlank</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="null-if-blank.html">C</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Returns <code class="lang-kotlin">null</code> if this String <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/index.html">isBlank</a> or the String itself</p></div></div></div>
                 </div>
+              </div>
+            </div>
+          </div>
 <a data-name="868541208%2FFunctions%2F-315873330" anchor-label="onEach" id="868541208%2FFunctions%2F-315873330" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain"></a>
-                <div class="table-row" data-filterable-current=":stdx-core:dokkaHtmlPartial/commonMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex">
-                        <div><a href="on-each.html"><span>on</span><wbr><span><span>Each</span></span></a></div>
+          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":stdx-core:dokkaHtmlPartial/commonMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="on-each.html"><span>on</span><wbr><span><span>Each</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="868541208%2FFunctions%2F-315873330"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
-                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":stdx-core:dokkaHtmlPartial/commonMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":stdx-core:dokkaHtmlPartial/commonMain">common</button></div>
-<div class="content sourceset-depenent-content" data-active="" data-togglable=":stdx-core:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="on-each.html">T</a><span class="token operator">&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterable/index.html">Iterable</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="on-each.html">T</a><span class="token operator">&gt;</span><span class="token punctuation">.</span><a href="on-each.html"><span class="token function">onEach</span></a><span class="token punctuation">(</span>action<span class="token operator">: </span><span class="token keyword"></span><a href="on-each.html">T</a><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">Performs the given <a href="on-each.html">action</a> on each element.</p></div></div>                        </div>
-                      </div>
-                    </div>
-                  </div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stdx-core:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="on-each.html">T</a><span class="token operator">&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterable/index.html">Iterable</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="on-each.html">T</a><span class="token operator">&gt;</span><span class="token punctuation">.</span><a href="on-each.html"><span class="token function">onEach</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">action<span class="token operator">: </span><span class="token keyword"></span><a href="on-each.html">T</a><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Performs the given <a href="on-each.html">action</a> on each element.</p></div></div></div>
                 </div>
+              </div>
+            </div>
+          </div>
 <a data-name="-1961350547%2FFunctions%2F-315873330" anchor-label="paginate" id="-1961350547%2FFunctions%2F-315873330" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain"></a>
-                <div class="table-row" data-filterable-current=":stdx-core:dokkaHtmlPartial/commonMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex">
-                        <div><a href="paginate.html"><span><span>paginate</span></span></a></div>
+          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":stdx-core:dokkaHtmlPartial/commonMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="paginate.html"><span><span>paginate</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1961350547%2FFunctions%2F-315873330"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
-                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":stdx-core:dokkaHtmlPartial/commonMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":stdx-core:dokkaHtmlPartial/commonMain">common</button></div>
-<div class="content sourceset-depenent-content" data-active="" data-togglable=":stdx-core:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="token punctuation">.</span><a href="paginate.html"><span class="token function">paginate</span></a><span class="token punctuation">(</span>pageLength<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span>separator<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator"> = </span><span class="token string">""</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">Tries to paginate this Strings (seperated by <a href="paginate.html">separator</a>) into pages of <a href="paginate.html">pageLength</a> with words in mind.</p></div></div>                        </div>
-                      </div>
-                    </div>
-                  </div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stdx-core:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="token punctuation">.</span><a href="paginate.html"><span class="token function">paginate</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">pageLength<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">separator<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator"> = </span><span class="token string">""</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Tries to paginate this Strings (seperated by <a href="paginate.html">separator</a>) into pages of <a href="paginate.html">pageLength</a> with words in mind.</p></div></div></div>
                 </div>
+              </div>
+            </div>
+          </div>
 <a data-name="260906000%2FFunctions%2F972264296" anchor-label="parent" id="260906000%2FFunctions%2F972264296" data-filterable-set=":stdx-core:dokkaHtmlPartial/jvmMain"></a>
-                <div class="table-row" data-filterable-current=":stdx-core:dokkaHtmlPartial/jvmMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/jvmMain">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex">
-                        <div><a href="parent.html"><span><span>parent</span></span></a></div>
+          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":stdx-core:dokkaHtmlPartial/jvmMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/jvmMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="parent.html"><span><span>parent</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="260906000%2FFunctions%2F972264296"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
-                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark jvm-like" data-filterable-current=":stdx-core:dokkaHtmlPartial/jvmMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/jvmMain" data-active="" data-toggle=":stdx-core:dokkaHtmlPartial/jvmMain">jvm</button></div>
-<div class="content sourceset-depenent-content" data-active="" data-togglable=":stdx-core:dokkaHtmlPartial/jvmMain"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="https://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html">Path</a><span class="token punctuation">.</span><a href="parent.html"><span class="token function">parent</span></a><span class="token punctuation">(</span>n<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html">Path</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">Returns the <a href="parent.html">nth</a> parent of this <a href="https://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html">Path</a>.</p></div></div>                        </div>
-                      </div>
-                    </div>
-                  </div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":stdx-core:dokkaHtmlPartial/jvmMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/jvmMain" data-active="" data-toggle=":stdx-core:dokkaHtmlPartial/jvmMain">jvm</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":stdx-core:dokkaHtmlPartial/jvmMain"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="https://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html">Path</a><span class="token punctuation">.</span><a href="parent.html"><span class="token function">parent</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">n<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html">Path</a></div><div class="brief "><p class="paragraph">Returns the <a href="parent.html">nth</a> parent of this <a href="https://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html">Path</a>.</p></div></div>                  </div>
                 </div>
+              </div>
+            </div>
+          </div>
 <a data-name="1032487821%2FFunctions%2F972264296" anchor-label="poll" id="1032487821%2FFunctions%2F972264296" data-filterable-set=":stdx-core:dokkaHtmlPartial/jvmMain"></a>
-                <div class="table-row" data-filterable-current=":stdx-core:dokkaHtmlPartial/jvmMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/jvmMain">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex">
-                        <div><a href="poll.html"><span><span>poll</span></span></a></div>
+          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":stdx-core:dokkaHtmlPartial/jvmMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/jvmMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="poll.html"><span><span>poll</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1032487821%2FFunctions%2F972264296"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
-                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark jvm-like" data-filterable-current=":stdx-core:dokkaHtmlPartial/jvmMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/jvmMain" data-active="" data-toggle=":stdx-core:dokkaHtmlPartial/jvmMain">jvm</button></div>
-<div class="content sourceset-depenent-content" data-active="" data-togglable=":stdx-core:dokkaHtmlPartial/jvmMain"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="poll.html">T</a><span class="token operator">&gt; </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Queue.html">Queue</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="poll.html">T</a><span class="token operator">&gt;</span><span class="token punctuation">.</span><a href="poll.html"><span class="token function">poll</span></a><span class="token punctuation">(</span>amount<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="poll.html">T</a><span class="token operator">?</span><span class="token operator">&gt;</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">Polls <a href="poll.html">amount</a> items from this <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Queue.html">Queue</a>.</p></div></div>                        </div>
-                      </div>
-                    </div>
-                  </div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":stdx-core:dokkaHtmlPartial/jvmMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/jvmMain" data-active="" data-toggle=":stdx-core:dokkaHtmlPartial/jvmMain">jvm</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":stdx-core:dokkaHtmlPartial/jvmMain"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="poll.html">T</a><span class="token operator">&gt; </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Queue.html">Queue</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="poll.html">T</a><span class="token operator">&gt;</span><span class="token punctuation">.</span><a href="poll.html"><span class="token function">poll</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">amount<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="poll.html">T</a><span class="token operator">?</span><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Polls <a href="poll.html">amount</a> items from this <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Queue.html">Queue</a>.</p></div></div>                  </div>
                 </div>
+              </div>
+            </div>
+          </div>
 <a data-name="-262160189%2FFunctions%2F-315873330" anchor-label="removeLineBreaks" id="-262160189%2FFunctions%2F-315873330" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain"></a>
-                <div class="table-row" data-filterable-current=":stdx-core:dokkaHtmlPartial/commonMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex">
-                        <div><a href="remove-line-breaks.html"><span>remove</span><wbr><span>Line</span><wbr><span><span>Breaks</span></span></a></div>
+          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":stdx-core:dokkaHtmlPartial/commonMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="remove-line-breaks.html"><span>remove</span><wbr><span>Line</span><wbr><span><span>Breaks</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-262160189%2FFunctions%2F-315873330"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
-                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":stdx-core:dokkaHtmlPartial/commonMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":stdx-core:dokkaHtmlPartial/commonMain">common</button></div>
-<div class="content sourceset-depenent-content" data-active="" data-togglable=":stdx-core:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char-sequence/index.html">CharSequence</a><span class="token punctuation">.</span><a href="remove-line-breaks.html"><span class="token function">removeLineBreaks</span></a><span class="token punctuation">(</span>separator<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator"> = </span><span class="token string">" "</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">Removes all lines and replaces them with <a href="remove-line-breaks.html">separator</a>.</p></div></div>                        </div>
-                      </div>
-                    </div>
-                  </div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stdx-core:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char-sequence/index.html">CharSequence</a><span class="token punctuation">.</span><a href="remove-line-breaks.html"><span class="token function">removeLineBreaks</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">separator<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator"> = </span><span class="token string">" "</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">Removes all lines and replaces them with <a href="remove-line-breaks.html">separator</a>.</p></div></div></div>
                 </div>
+              </div>
+            </div>
+          </div>
 <a data-name="1811339122%2FFunctions%2F972264296" anchor-label="sha256" id="1811339122%2FFunctions%2F972264296" data-filterable-set=":stdx-core:dokkaHtmlPartial/jvmMain"></a>
-                <div class="table-row" data-filterable-current=":stdx-core:dokkaHtmlPartial/jvmMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/jvmMain">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex">
-                        <div><a href="sha256.html"><span><span>sha256</span></span></a></div>
+          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":stdx-core:dokkaHtmlPartial/jvmMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/jvmMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="sha256.html"><span><span>sha256</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1811339122%2FFunctions%2F972264296"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
-                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark jvm-like" data-filterable-current=":stdx-core:dokkaHtmlPartial/jvmMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/jvmMain" data-active="" data-toggle=":stdx-core:dokkaHtmlPartial/jvmMain">jvm</button></div>
-<div class="content sourceset-depenent-content" data-active="" data-togglable=":stdx-core:dokkaHtmlPartial/jvmMain"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">.</span><a href="sha256.html"><span class="token function">sha256</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">Hashes this <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a> using <code class="lang-kotlin">SHA-256</code>.</p></div><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">.</span><a href="sha256.html"><span class="token function">sha256</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">Hashes this <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a> using <code class="lang-kotlin">SHA-256</code>.</p></div></div>                        </div>
-                      </div>
-                    </div>
-                  </div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":stdx-core:dokkaHtmlPartial/jvmMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/jvmMain" data-active="" data-toggle=":stdx-core:dokkaHtmlPartial/jvmMain">jvm</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":stdx-core:dokkaHtmlPartial/jvmMain"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">.</span><a href="sha256.html"><span class="token function">sha256</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">Hashes this <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a> using <code class="lang-kotlin">SHA-256</code>.</p></div><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">.</span><a href="sha256.html"><span class="token function">sha256</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">Hashes this <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a> using <code class="lang-kotlin">SHA-256</code>.</p></div></div>                  </div>
                 </div>
+              </div>
+            </div>
+          </div>
 <a data-name="-1598299255%2FFunctions%2F-315873330" anchor-label="splitList" id="-1598299255%2FFunctions%2F-315873330" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain"></a>
-                <div class="table-row" data-filterable-current=":stdx-core:dokkaHtmlPartial/commonMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex">
-                        <div><a href="split-list.html"><span>split</span><wbr><span><span>List</span></span></a></div>
+          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":stdx-core:dokkaHtmlPartial/commonMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="split-list.html"><span>split</span><wbr><span><span>List</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1598299255%2FFunctions%2F-315873330"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
-                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":stdx-core:dokkaHtmlPartial/commonMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":stdx-core:dokkaHtmlPartial/commonMain">common</button></div>
-<div class="content sourceset-depenent-content" data-active="" data-togglable=":stdx-core:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char-sequence/index.html">CharSequence</a><span class="token punctuation">.</span><a href="split-list.html"><span class="token function">splitList</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">Splits a comma seperated list.</p></div></div>                        </div>
-                      </div>
-                    </div>
-                  </div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stdx-core:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char-sequence/index.html">CharSequence</a><span class="token punctuation">.</span><a href="split-list.html"><span class="token function">splitList</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Splits a comma seperated list.</p></div></div></div>
                 </div>
+              </div>
+            </div>
+          </div>
 <a data-name="1342574706%2FFunctions%2F-315873330" anchor-label="splitListStrict" id="1342574706%2FFunctions%2F-315873330" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain"></a>
-                <div class="table-row" data-filterable-current=":stdx-core:dokkaHtmlPartial/commonMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex">
-                        <div><a href="split-list-strict.html"><span>split</span><wbr><span>List</span><wbr><span><span>Strict</span></span></a></div>
+          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":stdx-core:dokkaHtmlPartial/commonMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="split-list-strict.html"><span>split</span><wbr><span>List</span><wbr><span><span>Strict</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1342574706%2FFunctions%2F-315873330"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
-                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":stdx-core:dokkaHtmlPartial/commonMain" data-filterable-set=":stdx-core:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":stdx-core:dokkaHtmlPartial/commonMain">common</button></div>
-<div class="content sourceset-depenent-content" data-active="" data-togglable=":stdx-core:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char-sequence/index.html">CharSequence</a><span class="token punctuation">.</span><a href="split-list-strict.html"><span class="token function">splitListStrict</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">Splits a comma seperated list.</p></div></div>                        </div>
-                      </div>
-                    </div>
-                  </div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stdx-core:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char-sequence/index.html">CharSequence</a><span class="token punctuation">.</span><a href="split-list-strict.html"><span class="token function">splitListStrict</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Splits a comma seperated list.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="footer"><span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2022 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span></div>
       </div>
     </div>
-  
-</body></html>
-
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2023 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+</body>
+</html>
 
