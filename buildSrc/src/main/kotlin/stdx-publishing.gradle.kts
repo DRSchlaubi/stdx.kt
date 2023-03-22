@@ -33,7 +33,7 @@ publishing {
             val platform = name.substringAfterLast('-')
             val dokkaJar = tasks.register("${platform}DokkaJar", Jar::class) {
                 dependsOn("dokkaHtml")
-                archiveClassifier.set("javadoc")
+                archiveClassifier.set("$platform-javadoc")
                 from(tasks.getByName("dokkaHtml"))
             }
             artifact(dokkaJar)
