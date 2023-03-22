@@ -11,11 +11,6 @@ plugins {
     id("org.jetbrains.dokka")
 }
 
-val dokkaJar by tasks.registering(Jar::class) {
-    dependsOn("dokkaHtml")
-    archiveClassifier.set("javadoc")
-    from(tasks.getByName("dokkaHtml"))
-}
 
 publishing {
     repositories {
@@ -35,6 +30,12 @@ publishing {
 
     publications {
         withType<MavenPublication> {
+            val platform = name.substringAfterLast('-')
+            val dokkaJar = tasks.register("${platform}DokkaJar", Jar::class) {
+                dependsOn("dokkaHtml")
+                archiveClassifier.set("javadoc")
+                from(tasks.getByName("dokkaHtml"))
+            }
             artifact(dokkaJar)
             pom {
                 name.set(project.name)
