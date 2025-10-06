@@ -38,8 +38,8 @@ jobs:
     needs: [test, validate_binary_compatibility]
     if: github.ref == 'refs/heads/main'
     env:
-      SONATYPE_KEY: ${{ secrets.SONATYPE_KEY }}
-      SONATYPE_USER: ${{ secrets.SONATYPE_USER }}
+      ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.SONATYPE_KEY }}
+      ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.SONATYPE_USER }}
       ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.signingKey }}
       ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.signingPassword }}
     steps:
