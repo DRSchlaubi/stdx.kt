@@ -40,3 +40,8 @@ final val dev.schlaubi.envconf/environment // dev.schlaubi.envconf/environment|{
 
 final fun <#A: kotlin/Any?> dev.schlaubi.envconf/getEnv(kotlin/String? = ..., #A? = ..., kotlin/Function1<kotlin/String, #A?>): dev.schlaubi.envconf/EnvironmentVariable<#A> // dev.schlaubi.envconf/getEnv|getEnv(kotlin.String?;0:0?;kotlin.Function1<kotlin.String,0:0?>){0§<kotlin.Any?>}[0]
 final fun dev.schlaubi.envconf/getEnv(kotlin/String? = ..., kotlin/String? = ...): dev.schlaubi.envconf/EnvironmentVariable<kotlin/String> // dev.schlaubi.envconf/getEnv|getEnv(kotlin.String?;kotlin.String?){}[0]
+
+// Targets: [wasmWasi]
+final var dev.schlaubi.envconf/environmentMap // dev.schlaubi.envconf/environmentMap|{}environmentMap[0]
+    final fun <get-environmentMap>(): kotlin.collections/Map<kotlin/String, kotlin/String?>? // dev.schlaubi.envconf/environmentMap.<get-environmentMap>|<get-environmentMap>(){}[0]
+    final fun <set-environmentMap>(kotlin.collections/Map<kotlin/String, kotlin/String?>?) // dev.schlaubi.envconf/environmentMap.<set-environmentMap>|<set-environmentMap>(kotlin.collections.Map<kotlin.String,kotlin.String?>?){}[0]

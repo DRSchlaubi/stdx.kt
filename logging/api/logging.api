@@ -1,0 +1,13 @@
+public final class dev/schlaubi/stdx/logging/InlinedLoggerKt {
+	public static final fun debugInlined (Lio/github/oshai/kotlinlogging/KLogger;Ljava/lang/Throwable;Lkotlin/jvm/functions/Function0;)V
+	public static final fun debugInlined (Lio/github/oshai/kotlinlogging/KLogger;Lkotlin/jvm/functions/Function0;)V
+	public static final fun errorInlined (Lio/github/oshai/kotlinlogging/KLogger;Ljava/lang/Throwable;Lkotlin/jvm/functions/Function0;)V
+	public static final fun errorInlined (Lio/github/oshai/kotlinlogging/KLogger;Lkotlin/jvm/functions/Function0;)V
+	public static final fun infoInlined (Lio/github/oshai/kotlinlogging/KLogger;Ljava/lang/Throwable;Lkotlin/jvm/functions/Function0;)V
+	public static final fun infoInlined (Lio/github/oshai/kotlinlogging/KLogger;Lkotlin/jvm/functions/Function0;)V
+	public static final fun traceInlined (Lio/github/oshai/kotlinlogging/KLogger;Ljava/lang/Throwable;Lkotlin/jvm/functions/Function0;)V
+	public static final fun traceInlined (Lio/github/oshai/kotlinlogging/KLogger;Lkotlin/jvm/functions/Function0;)V
+	public static final fun warnInlined (Lio/github/oshai/kotlinlogging/KLogger;Ljava/lang/Throwable;Lkotlin/jvm/functions/Function0;)V
+	public static final fun warnInlined (Lio/github/oshai/kotlinlogging/KLogger;Lkotlin/jvm/functions/Function0;)V
+}
+
