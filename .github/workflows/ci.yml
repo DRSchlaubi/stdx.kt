@@ -5,7 +5,7 @@ on:
 
 jobs:
   test:
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     name: Run tests and linter
     steps:
       - uses: actions/checkout@v5
@@ -30,7 +30,7 @@ jobs:
         run: ./gradlew checkLegacyAbi
   deploy_to_maven:
     name: Deploy to Maven repo
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     needs: [test, validate_binary_compatibility]
     if: github.ref == 'refs/heads/main'
     env:
