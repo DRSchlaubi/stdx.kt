@@ -46,7 +46,7 @@ jobs:
           java-version: '25'
       - uses: gradle/gradle-build-action@v2
       - name: Publish Code
-        run: ./gradlew publishPlatformPublications -x check
+        run: ./gradlew publishToMavenCentral
   build_docs:
     name: Deploy docs
     runs-on: ubuntu-latest
