@@ -4,6 +4,7 @@ import gradle.kotlin.dsl.accessors._0f82fbdf64a8d81165830c231454130a.abiValidati
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 import org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation
+import org.jetbrains.kotlin.gradle.tasks.KotlinTest
 
 plugins {
     kotlin("multiplatform")
@@ -76,6 +77,12 @@ dokka {
                 displayName = "JVM"
             }
         }
+    }
+}
+
+tasks {
+    withType<KotlinTest> {
+        failOnNoDiscoveredTests = false
     }
 }
 
