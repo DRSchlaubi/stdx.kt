@@ -4,15 +4,13 @@ plugins {
 
 
 allprojects {
-    version = "1.3.0"
+    version = "2.0.0"
     group = "dev.schlaubi"
-    repositories {
-        mavenCentral()
-    }
 }
 
-tasks {
-    dokkaHtmlMultiModule {
-        outputDirectory.set(rootProject.file("docs"))
-    }
+dependencies {
+    dokka(projects.core)
+    dokka(projects.coroutines)
+    dokka(projects.envconf)
+    dokka(projects.serialization)
 }

@@ -1,20 +1,32 @@
+@file:OptIn(ExperimentalKotlinGradlePluginApi::class)
+
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+
 plugins {
     `stdx-module`
-    `stdx-ktlint`
     `stdx-publishing`
     `all-platforms`
 }
 
 kotlin {
+    applyDefaultHierarchyTemplate {
+        common {
+            group("concurrentNonJvm") {
+                withNative()
+                withWasmJs()
+                withWasmWasi()
+            }
+        }
+    }
+
+    compilerOptions {
+        optIn.add("kotlinx.coroutines.ExperimentalCoroutinesApi")
+    }
 
     sourceSets {
-        all {
-            languageSettings.optIn("kotlinx.coroutines.ExperimentalCoroutinesApi")
-        }
-
         commonMain {
             dependencies {
-                api(project.dependencies.platform("org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.6.4"))
+                api(project.dependencies.platform("org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.10.2"))
                 api("org.jetbrains.kotlinx", "kotlinx-coroutines-core")
             }
         }

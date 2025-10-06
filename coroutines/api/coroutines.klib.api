@@ -1,0 +1,23 @@
+// Klib ABI Dump
+// Targets: [iosArm64, iosSimulatorArm64, iosX64, js, linuxArm64, linuxX64, macosArm64, macosX64, mingwX64, tvosArm64, tvosSimulatorArm64, tvosX64, wasmJs, wasmWasi, watchosArm64, watchosSimulatorArm64, watchosX64]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <dev.schlaubi:coroutines>
+abstract interface <#A: out kotlin/Any?> dev.schlaubi.stdx.coroutines/SuspendLazy { // dev.schlaubi.stdx.coroutines/SuspendLazy|null[0]
+    abstract fun isInitialized(): kotlin/Boolean // dev.schlaubi.stdx.coroutines/SuspendLazy.isInitialized|isInitialized(){}[0]
+    abstract suspend fun get(): #A // dev.schlaubi.stdx.coroutines/SuspendLazy.get|get(){}[0]
+    open suspend fun invoke(): #A // dev.schlaubi.stdx.coroutines/SuspendLazy.invoke|invoke(){}[0]
+}
+
+final fun <#A: kotlin/Any?> dev.schlaubi.stdx.coroutines/localSuspendLazy(kotlin.coroutines/SuspendFunction0<#A>): dev.schlaubi.stdx.coroutines/SuspendLazy<#A> // dev.schlaubi.stdx.coroutines/localSuspendLazy|localSuspendLazy(kotlin.coroutines.SuspendFunction0<0:0>){0§<kotlin.Any?>}[0]
+final fun <#A: kotlin/Any?> dev.schlaubi.stdx.coroutines/suspendLazy(kotlin.coroutines/SuspendFunction0<#A>): dev.schlaubi.stdx.coroutines/SuspendLazy<#A> // dev.schlaubi.stdx.coroutines/suspendLazy|suspendLazy(kotlin.coroutines.SuspendFunction0<0:0>){0§<kotlin.Any?>}[0]
+final fun <#A: kotlin/Any?> dev.schlaubi.stdx.coroutines/suspendLazy(kotlin/LazyThreadSafetyMode, kotlin.coroutines/SuspendFunction0<#A>): dev.schlaubi.stdx.coroutines/SuspendLazy<#A> // dev.schlaubi.stdx.coroutines/suspendLazy|suspendLazy(kotlin.LazyThreadSafetyMode;kotlin.coroutines.SuspendFunction0<0:0>){0§<kotlin.Any?>}[0]
+final suspend fun <#A: kotlin/Any?, #B: kotlin/Any?> (kotlin.collections/Collection<#A>).dev.schlaubi.stdx.coroutines/parallelMap(kotlin/Int? = ..., kotlin.coroutines/SuspendFunction1<#A, #B>): kotlin.collections/List<#B> // dev.schlaubi.stdx.coroutines/parallelMap|parallelMap@kotlin.collections.Collection<0:0>(kotlin.Int?;kotlin.coroutines.SuspendFunction1<0:0,0:1>){0§<kotlin.Any?>;1§<kotlin.Any?>}[0]
+final suspend fun <#A: kotlin/Any?, #B: kotlin/Any?> (kotlin.collections/Collection<#A>).dev.schlaubi.stdx.coroutines/parallelMapIndexed(kotlin/Int? = ..., kotlin.coroutines/SuspendFunction2<kotlin/Int, #A, #B>): kotlin.collections/List<#B> // dev.schlaubi.stdx.coroutines/parallelMapIndexed|parallelMapIndexed@kotlin.collections.Collection<0:0>(kotlin.Int?;kotlin.coroutines.SuspendFunction2<kotlin.Int,0:0,0:1>){0§<kotlin.Any?>;1§<kotlin.Any?>}[0]
+final suspend fun <#A: kotlin/Any?, #B: kotlin/Any?> (kotlin.collections/Collection<#A>).dev.schlaubi.stdx.coroutines/parallelMapNotNull(kotlin/Int? = ..., kotlin.coroutines/SuspendFunction1<#A, #B?>): kotlin.collections/List<#B> // dev.schlaubi.stdx.coroutines/parallelMapNotNull|parallelMapNotNull@kotlin.collections.Collection<0:0>(kotlin.Int?;kotlin.coroutines.SuspendFunction1<0:0,0:1?>){0§<kotlin.Any?>;1§<kotlin.Any?>}[0]
+final suspend fun <#A: kotlin/Any?, #B: kotlin/Any?> (kotlin.collections/Collection<#A>).dev.schlaubi.stdx.coroutines/parallelMapNotNullIndexed(kotlin/Int? = ..., kotlin.coroutines/SuspendFunction2<kotlin/Int, #A, #B?>): kotlin.collections/List<#B> // dev.schlaubi.stdx.coroutines/parallelMapNotNullIndexed|parallelMapNotNullIndexed@kotlin.collections.Collection<0:0>(kotlin.Int?;kotlin.coroutines.SuspendFunction2<kotlin.Int,0:0,0:1?>){0§<kotlin.Any?>;1§<kotlin.Any?>}[0]
+final suspend fun <#A: kotlin/Any?> (kotlin.collections/Iterable<#A>).dev.schlaubi.stdx.coroutines/forEachParallel(kotlin.coroutines/SuspendFunction1<#A, kotlin/Unit>) // dev.schlaubi.stdx.coroutines/forEachParallel|forEachParallel@kotlin.collections.Iterable<0:0>(kotlin.coroutines.SuspendFunction1<0:0,kotlin.Unit>){0§<kotlin.Any?>}[0]
+final suspend fun <#A: kotlin/Any?> (kotlin.collections/Iterable<#A>).dev.schlaubi.stdx.coroutines/onEachParallel(kotlin.coroutines/SuspendFunction1<#A, kotlin/Unit>) // dev.schlaubi.stdx.coroutines/onEachParallel|onEachParallel@kotlin.collections.Iterable<0:0>(kotlin.coroutines.SuspendFunction1<0:0,kotlin.Unit>){0§<kotlin.Any?>}[0]

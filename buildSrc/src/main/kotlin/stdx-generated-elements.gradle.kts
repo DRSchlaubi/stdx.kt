@@ -18,5 +18,5 @@ afterEvaluate {
 }
 
 tasks {
-    task("generateElements")
+    register("generateElements")
 }

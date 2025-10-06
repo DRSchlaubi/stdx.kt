@@ -1,0 +1,20 @@
+// Klib ABI Dump
+// Targets: [iosArm64, iosSimulatorArm64, iosX64, js, linuxArm64, linuxX64, macosArm64, macosX64, mingwX64, tvosArm64, tvosSimulatorArm64, tvosX64, wasmJs, wasmWasi, watchosArm64, watchosSimulatorArm64, watchosX64]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <dev.schlaubi:test-tools>
+final object /Platform { // /Platform|null[0]
+    final val isBrowser // /Platform.isBrowser|{}isBrowser[0]
+        final fun <get-isBrowser>(): kotlin/Boolean // /Platform.isBrowser.<get-isBrowser>|<get-isBrowser>(){}[0]
+    final val isJs // /Platform.isJs|{}isJs[0]
+        final fun <get-isJs>(): kotlin/Boolean // /Platform.isJs.<get-isJs>|<get-isJs>(){}[0]
+    final val isJvm // /Platform.isJvm|{}isJvm[0]
+        final fun <get-isJvm>(): kotlin/Boolean // /Platform.isJvm.<get-isJvm>|<get-isJvm>(){}[0]
+    final val isNative // /Platform.isNative|{}isNative[0]
+        final fun <get-isNative>(): kotlin/Boolean // /Platform.isNative.<get-isNative>|<get-isNative>(){}[0]
+    final val isNode // /Platform.isNode|{}isNode[0]
+        final fun <get-isNode>(): kotlin/Boolean // /Platform.isNode.<get-isNode>|<get-isNode>(){}[0]
+}

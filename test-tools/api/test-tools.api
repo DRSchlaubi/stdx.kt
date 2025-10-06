@@ -1,0 +1,9 @@
+public final class Platform {
+	public static final field INSTANCE LPlatform;
+	public final fun isBrowser ()Z
+	public final fun isJs ()Z
+	public final fun isJvm ()Z
+	public final fun isNative ()Z
+	public final fun isNode ()Z
+}
+

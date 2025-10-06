@@ -9,12 +9,11 @@ repositories {
 }
 
 dependencies {
-    implementation(kotlin("gradle-plugin", version = "1.8.10"))
-    implementation(kotlin("serialization", version = "1.8.10"))
-    implementation("org.jetbrains.dokka", "dokka-gradle-plugin", "1.8.10")
-    implementation("org.jlleitschuh.gradle", "ktlint-gradle", "11.3.1")
-    implementation("com.squareup", "kotlinpoet", "1.12.0")
-    implementation("org.jetbrains.kotlinx", "binary-compatibility-validator", "0.13.0")
+    implementation(kotlin("gradle-plugin", version = "2.2.20"))
+    implementation(kotlin("serialization", version = "2.2.20"))
+    implementation("org.jetbrains.dokka", "dokka-gradle-plugin", "2.1.0-Beta")
+    implementation("com.squareup", "kotlinpoet", "2.2.0")
+    implementation("com.vanniktech", "gradle-maven-publish-plugin", "0.34.0")
     implementation(gradleApi())
     implementation(localGroovy())
 }

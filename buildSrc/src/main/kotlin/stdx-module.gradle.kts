@@ -1,29 +1,37 @@
-import org.gradle.jvm.toolchain.internal.DefaultToolchainSpec
+@file:OptIn(ExperimentalAbiValidation::class)
+
+import gradle.kotlin.dsl.accessors._0f82fbdf64a8d81165830c231454130a.abiValidation
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
-import java.net.URL
+import org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation
 
 plugins {
     kotlin("multiplatform")
     id("org.jetbrains.dokka")
-    id("org.jetbrains.kotlinx.binary-compatibility-validator")
 }
 
 kotlin {
     explicitApi()
     configureTargets()
 
-    sourceSets {
-        all {
-            languageSettings.optIn("kotlin.contracts.ExperimentalContracts")
-            languageSettings.optIn("kotlin.RequiresOptIn")
-        }
+    compilerOptions {
+        optIn.addAll(
+            "kotlin.contracts.ExperimentalContracts",
+            "kotlin.RequiresOptIn"
+        )
+    }
 
+    abiValidation {
+        enabled = true
+    }
+
+    sourceSets {
         commonTest {
             dependencies {
                 implementation(kotlin("test"))
 
                 if (project.name != "stdx-test-tools") {
-                    implementation(project(":stdx-test-tools"))
+                    implementation(project(":test-tools"))
                 }
             }
         }
@@ -43,69 +51,49 @@ kotlin {
     }
 }
 
-tasks {
-    withType<org.jetbrains.dokka.gradle.DokkaTask>().configureEach {
-        dokkaSourceSets {
-            configureEach {
-                val file = projectDir.resolve("src/$name/kotlin")
-                if (file.exists()) {
-                    sourceLink {
-                        // Unix based directory relative path to the root of the project (where you execute gradle respectively).
-                        localDirectory.set(file)
+dokka {
+    dokkaSourceSets {
+        configureEach {
+            val file = projectDir.resolve("src/$name/kotlin")
+            if (file.exists()) {
+                sourceLink {
+                    // Unix based directory relative path to the root of the project (where you execute gradle respectively).
+                    localDirectory = file
 
-                        // URL showing where the source code can be accessed through the web browser
-                        remoteUrl.set(
-                            URL(
-                                "https://github.com/DRSchlaubi/stdx.kt/blob/main/${project.name}src/$name/kotlin"
-                            )
-                        )
-                        // Suffix which is used to append the line number to the URL. Use #L for GitHub
-                        remoteLineSuffix.set("#L")
-                    }
+                    // URL showing where the source code can be accessed through the web browser
+                    remoteUrl = uri("https://github.com/DRSchlaubi/stdx.kt/blob/main/${project.name}src/$name/kotlin")
+                    // Suffix which is used to append the line number to the URL. Use #L for GitHub
+                    remoteLineSuffix = "#L"
                 }
             }
+        }
 
-            val map = asMap
+        val map = asMap
 
-            if (map.containsKey("jsMain")) {
-                named("jsMain") {
-                    displayName.set("JS")
-                }
-            }
-
-            if (map.containsKey("jvmMain")) {
-                named("jvmMain") {
-                    jdkVersion.set(8)
-                    displayName.set("JVM")
-                }
-            }
-
-            if (map.containsKey("nativeMain")) {
-                named("nativeMain") {
-                    displayName.set("Native")
-                }
+        if (map.containsKey("jvmMain")) {
+            named("jvmMain") {
+                jdkVersion = 8
+                displayName = "JVM"
             }
         }
     }
 }
 
 kotlin {
-    jvmToolchain {
-        (this as DefaultToolchainSpec).languageVersion.set(JavaLanguageVersion.of(19))
-    }
+    jvmToolchain(25)
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
+    sourceCompatibility = JavaVersion.VERSION_11
 }
 
 fun KotlinMultiplatformExtension.configureTargets() {
     jvm {
-        compilations.all {
-            kotlinOptions.jvmTarget = "1.8"
+        compilerOptions {
+            jvmTarget = JvmTarget.JVM_11
         }
-        testRuns["test"].executionTask.configure {
-            useJUnitPlatform()
+        testRuns.all {
+            executionTask.configure { useJUnitPlatform() }
         }
     }
 }

@@ -1,6 +1,5 @@
 plugins {
     `stdx-module`
-    `stdx-ktlint`
     `stdx-publishing`
     `all-platforms`
     kotlin("plugin.serialization")
@@ -10,7 +9,7 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                api(platform("org.jetbrains.kotlinx:kotlinx-serialization-bom:1.5.0"))
+                api(project.dependencies.platform("org.jetbrains.kotlinx:kotlinx-serialization-bom:1.9.0"))
                 api("org.jetbrains.kotlinx", "kotlinx-serialization-core")
                 api("org.jetbrains.kotlinx", "kotlinx-serialization-json")
             }

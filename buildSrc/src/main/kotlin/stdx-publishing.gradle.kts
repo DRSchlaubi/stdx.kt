@@ -1,115 +1,47 @@
-import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
-import org.jetbrains.kotlin.gradle.plugin.KotlinTarget
-import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
-import org.jetbrains.kotlin.konan.target.HostManager
-import org.jetbrains.kotlin.konan.target.KonanTarget
-import java.util.*
+import com.vanniktech.maven.publish.JavaPlatform
+import com.vanniktech.maven.publish.JavadocJar
+import com.vanniktech.maven.publish.KotlinMultiplatform
 
 plugins {
-    `maven-publish`
-    signing
+    id("com.vanniktech.maven.publish.base")
     id("org.jetbrains.dokka")
 }
 
-
-publishing {
-    repositories {
-        val repo = if ("SNAPSHOT" in version.toString()) {
-            "https://s01.oss.sonatype.org/content/repositories/snapshots/"
-        } else {
-            "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
-        }
-        maven {
-            setUrl(repo)
-            credentials {
-                username = System.getenv("SONATYPE_USER")
-                password = System.getenv("SONATYPE_KEY")
-            }
-        }
+mavenPublishing {
+    if (plugins.hasPlugin("org.jetbrains.kotlin.multiplatform")) {
+        configure(KotlinMultiplatform(JavadocJar.Dokka("dokkaGeneratePublicationHtml"), sourcesJar = true))
+    } else if (plugins.hasPlugin("java-platform")) {
+        configure(JavaPlatform())
     }
 
-    publications {
-        withType<MavenPublication> {
-            val platform = name.substringAfterLast('-')
-            val dokkaJar = tasks.register("${platform}DokkaJar", Jar::class) {
-                dependsOn("dokkaHtml")
-                archiveClassifier.set("javadoc")
-                destinationDirectory.set(buildDir.resolve(platform))
-                from(tasks.getByName("dokkaHtml"))
+    coordinates("dev.schlaubi", "stdx-${project.name}", project.version.toString())
+    publishToMavenCentral(automaticRelease = true)
+    signAllPublications()
+
+    pom {
+        name = project.name
+        description = "Kotlin Standard Library Extensions"
+        url = "https://github.com/DRSchlaubi/stdx.kt"
+
+        licenses {
+            license {
+                name = "Apache-2.0 License"
+                url = "https://github.com/DRSchlaubi/stdx.kt/blob/main/LICENSE"
             }
-            artifact(dokkaJar)
-            pom {
-                name.set(project.name)
-                description.set("Kotlin Standard Library Extensions")
-                url.set("https://github.com/DRSchlaubi/stdx.kt")
+        }
 
-                licenses {
-                    license {
-                        name.set("Apache-2.0 License")
-                        url.set("https://github.com/DRSchlaubi/stdx.kt/blob/main/LICENSE")
-                    }
-                }
-
-                developers {
-                    developer {
-                        name.set("Michael Rittmeister")
-                        email.set("mail@schlaubi.me")
-                        organizationUrl.set("https://schlau.bi")
-                    }
-                }
-
-                scm {
-                    connection.set("scm:git:https://github.com/DRSchlaubi/stdx.kt.git")
-                    developerConnection.set("scm:git:https://github.com/DRSchlaubi/stdx.kt.git")
-                    url.set("https://github.com/DRSchlaubi/stdx.kt")
-                }
+        developers {
+            developer {
+                name = "Michael Rittmeister"
+                email = "mail@schlaubi.me"
+                organizationUrl = "https://schlau.bi"
             }
+        }
+
+        scm {
+            connection = "scm:git:https://github.com/DRSchlaubi/stdx.kt.git"
+            developerConnection = "scm:git:https://github.com/DRSchlaubi/stdx.kt.git"
+            url = "https://github.com/DRSchlaubi/stdx.kt"
         }
     }
 }
-
-signing {
-    val signingKey = findProperty("signingKey")?.toString()
-    val signingPassword = findProperty("signingPassword")?.toString()
-    if (signingKey != null && signingPassword != null) {
-        useInMemoryPgpKeys(
-            String(Base64.getDecoder().decode(signingKey.toByteArray())),
-            signingPassword
-        )
-
-        publishing.publications.withType<MavenPublication> {
-            sign(this)
-        }
-    }
-
-}
-
-tasks {
-    task("publishPlatformPublications") {
-        if (runMainCI) {
-            dependsOn(publish)
-        } else {
-            afterEvaluate {
-                val extension = extensions.findByName("kotlin")
-                        as? KotlinMultiplatformExtension ?: return@afterEvaluate
-
-                val enabledTargets = extension.run {
-                    val hostManager = HostManager()
-                    val macOsTargets = hostManager.enabledByHost[KonanTarget.MACOS_X64] ?: emptySet()
-                    val linuxTargets = hostManager.enabledByHost[KonanTarget.LINUX_X64] ?: emptySet()
-
-                    targets.asSequence()
-                        .filterIsInstance<KotlinNativeTarget>()
-                        .filter {
-                            it.konanTarget !in linuxTargets && it.konanTarget in macOsTargets
-                        }
-                }
-
-                val tasks = enabledTargets.map { "publish${it.publicationName()}PublicationToMavenRepository" }
-                dependsOn(*tasks.filter { project.tasks.findByName(it) != null }.toList().toTypedArray())
-            }
-        }
-    }
-}
-
-fun KotlinTarget.publicationName() = targetName.take(1).uppercase(Locale.getDefault()) + targetName.drop(1)

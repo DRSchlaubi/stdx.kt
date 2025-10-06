@@ -1,0 +1,42 @@
+// Klib ABI Dump
+// Targets: [js, linuxArm64, linuxX64, macosArm64, macosX64, mingwX64, wasmWasi]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <dev.schlaubi:envconf>
+open class dev.schlaubi.envconf/Config { // dev.schlaubi.envconf/Config|null[0]
+    constructor <init>(kotlin/String = ...) // dev.schlaubi.envconf/Config.<init>|<init>(kotlin.String){}[0]
+
+    final val environment // dev.schlaubi.envconf/Config.environment|{}environment[0]
+        final fun <get-environment>(): dev.schlaubi.envconf/EnvironmentVariable<kotlin/String> // dev.schlaubi.envconf/Config.environment.<get-environment>|<get-environment>(){}[0]
+
+    final fun <#A1: kotlin/Any?> getEnv(#A1? = ..., kotlin/Function1<kotlin/String, #A1?>): dev.schlaubi.envconf/EnvironmentVariable<#A1> // dev.schlaubi.envconf/Config.getEnv|getEnv(0:0?;kotlin.Function1<kotlin.String,0:0?>){0§<kotlin.Any?>}[0]
+    final fun getEnv(kotlin/String? = ...): dev.schlaubi.envconf/EnvironmentVariable<kotlin/String> // dev.schlaubi.envconf/Config.getEnv|getEnv(kotlin.String?){}[0]
+    final fun provideDelegate(kotlin/Any?, kotlin.reflect/KProperty<*>): dev.schlaubi.envconf/EnvironmentVariable<kotlin/String> // dev.schlaubi.envconf/Config.provideDelegate|provideDelegate(kotlin.Any?;kotlin.reflect.KProperty<*>){}[0]
+}
+
+sealed class <#A: kotlin/Any?> dev.schlaubi.envconf/EnvironmentVariable : kotlin.properties/ReadOnlyProperty<kotlin/Any?, #A> { // dev.schlaubi.envconf/EnvironmentVariable|null[0]
+    final var name // dev.schlaubi.envconf/EnvironmentVariable.name|{}name[0]
+        final fun <get-name>(): kotlin/String // dev.schlaubi.envconf/EnvironmentVariable.name.<get-name>|<get-name>(){}[0]
+        final fun <set-name>(kotlin/String) // dev.schlaubi.envconf/EnvironmentVariable.name.<set-name>|<set-name>(kotlin.String){}[0]
+
+    abstract fun convert(#A?): #A // dev.schlaubi.envconf/EnvironmentVariable.convert|convert(1:0?){}[0]
+    final fun getValue(kotlin/Any?, kotlin.reflect/KProperty<*>): #A // dev.schlaubi.envconf/EnvironmentVariable.getValue|getValue(kotlin.Any?;kotlin.reflect.KProperty<*>){}[0]
+    open fun optional(): dev.schlaubi.envconf/EnvironmentVariable<#A?> // dev.schlaubi.envconf/EnvironmentVariable.optional|optional(){}[0]
+
+    final object Companion { // dev.schlaubi.envconf/EnvironmentVariable.Companion|null[0]
+        final fun <#A2: kotlin/Any?> invoke(kotlin/String?, kotlin/Function1<kotlin/String, #A2?>, #A2?): dev.schlaubi.envconf/EnvironmentVariable<#A2> // dev.schlaubi.envconf/EnvironmentVariable.Companion.invoke|invoke(kotlin.String?;kotlin.Function1<kotlin.String,0:0?>;0:0?){0§<kotlin.Any?>}[0]
+    }
+}
+
+final object dev.schlaubi.envconf/Environment { // dev.schlaubi.envconf/Environment|null[0]
+    final fun provideDelegate(kotlin/Any?, kotlin.reflect/KProperty<*>): dev.schlaubi.envconf/EnvironmentVariable<kotlin/String> // dev.schlaubi.envconf/Environment.provideDelegate|provideDelegate(kotlin.Any?;kotlin.reflect.KProperty<*>){}[0]
+}
+
+final val dev.schlaubi.envconf/environment // dev.schlaubi.envconf/environment|{}environment[0]
+    final fun <get-environment>(): dev.schlaubi.envconf/EnvironmentVariable<kotlin/String> // dev.schlaubi.envconf/environment.<get-environment>|<get-environment>(){}[0]
+
+final fun <#A: kotlin/Any?> dev.schlaubi.envconf/getEnv(kotlin/String? = ..., #A? = ..., kotlin/Function1<kotlin/String, #A?>): dev.schlaubi.envconf/EnvironmentVariable<#A> // dev.schlaubi.envconf/getEnv|getEnv(kotlin.String?;0:0?;kotlin.Function1<kotlin.String,0:0?>){0§<kotlin.Any?>}[0]
+final fun dev.schlaubi.envconf/getEnv(kotlin/String? = ..., kotlin/String? = ...): dev.schlaubi.envconf/EnvironmentVariable<kotlin/String> // dev.schlaubi.envconf/getEnv|getEnv(kotlin.String?;kotlin.String?){}[0]

@@ -12,16 +12,8 @@ rootProject.subprojects {
 
 dependencies {
     rootProject.subprojects.forEach { subproject ->
-        if (subproject.plugins.hasPlugin("maven-publish") && subproject.name !in groupProjects) {
-            api("dev.schlaubi", subproject.name, subproject.version.toString())
+        if (subproject.plugins.hasPlugin("org.jetbrains.kotlin.multiplatform")) {
+            api(subproject)
         }
-    }
-}
-
-if (runMainCI) {
-    publishing {
-        publications.create<MavenPublication>("maven") {
-            from(components["java"])
         }
-    }
 }

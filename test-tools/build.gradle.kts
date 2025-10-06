@@ -1,5 +1,10 @@
 plugins {
     `stdx-module`
-    `stdx-ktlint`
     `all-platforms`
+}
+
+kotlin {
+    compilerOptions {
+        freeCompilerArgs.add("-Xexpect-actual-classes")
+    }
 }

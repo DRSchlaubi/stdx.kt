@@ -6,7 +6,6 @@ plugins {
     nodejs
     `desktop-all`
     `stdx-module`
-    `stdx-ktlint`
     `stdx-publishing`
 }
 

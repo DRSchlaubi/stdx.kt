@@ -1,0 +1,20 @@
+// Klib ABI Dump
+// Targets: [js, wasmJs, wasmWasi]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <dev.schlaubi:core>
+final fun (kotlin.collections/List<kotlin/String>).dev.schlaubi.stdx.core/paginate(kotlin/Int, kotlin/String = ...): kotlin.collections/List<kotlin/String> // dev.schlaubi.stdx.core/paginate|paginate@kotlin.collections.List<kotlin.String>(kotlin.Int;kotlin.String){}[0]
+final fun (kotlin/CharSequence).dev.schlaubi.stdx.core/isNumeric(): kotlin/Boolean // dev.schlaubi.stdx.core/isNumeric|isNumeric@kotlin.CharSequence(){}[0]
+final fun (kotlin/CharSequence).dev.schlaubi.stdx.core/removeLineBreaks(kotlin/String = ...): kotlin/String // dev.schlaubi.stdx.core/removeLineBreaks|removeLineBreaks@kotlin.CharSequence(kotlin.String){}[0]
+final fun (kotlin/CharSequence).dev.schlaubi.stdx.core/splitList(): kotlin.collections/List<kotlin/String> // dev.schlaubi.stdx.core/splitList|splitList@kotlin.CharSequence(){}[0]
+final fun (kotlin/CharSequence).dev.schlaubi.stdx.core/splitListStrict(): kotlin.collections/List<kotlin/String> // dev.schlaubi.stdx.core/splitListStrict|splitListStrict@kotlin.CharSequence(){}[0]
+final fun (kotlin/String).dev.schlaubi.stdx.core/limit(kotlin/Int, kotlin/String = ...): kotlin/String // dev.schlaubi.stdx.core/limit|limit@kotlin.String(kotlin.Int;kotlin.String){}[0]
+final inline fun (kotlin/CharSequence).dev.schlaubi.stdx.core/isNotNumeric(): kotlin/Boolean // dev.schlaubi.stdx.core/isNotNumeric|isNotNumeric@kotlin.CharSequence(){}[0]
+final inline fun (kotlin/CharSequence?).dev.schlaubi.stdx.core/isNotNullOrBlank(): kotlin/Boolean // dev.schlaubi.stdx.core/isNotNullOrBlank|isNotNullOrBlank@kotlin.CharSequence?(){}[0]
+final inline fun (kotlin/CharSequence?).dev.schlaubi.stdx.core/isNotNullOrEmpty(): kotlin/Boolean // dev.schlaubi.stdx.core/isNotNullOrEmpty|isNotNullOrEmpty@kotlin.CharSequence?(){}[0]
+final inline fun <#A: kotlin/Any?, #B: kotlin/Any?> (kotlin.collections/MutableMap<#A, #B>).dev.schlaubi.stdx.core/computeIfAbsent(#A, kotlin/Function0<#B>): #B // dev.schlaubi.stdx.core/computeIfAbsent|computeIfAbsent@kotlin.collections.MutableMap<0:0,0:1>(0:0;kotlin.Function0<0:1>){0§<kotlin.Any?>;1§<kotlin.Any?>}[0]
+final inline fun <#A: kotlin/Any?> (kotlin.collections/Iterable<#A>).dev.schlaubi.stdx.core/onEach(kotlin/Function1<#A, kotlin/Unit>) // dev.schlaubi.stdx.core/onEach|onEach@kotlin.collections.Iterable<0:0>(kotlin.Function1<0:0,kotlin.Unit>){0§<kotlin.Any?>}[0]
+final inline fun <#A: kotlin/CharSequence> (#A).dev.schlaubi.stdx.core/nullIfBlank(): #A? // dev.schlaubi.stdx.core/nullIfBlank|nullIfBlank@0:0(){0§<kotlin.CharSequence>}[0]

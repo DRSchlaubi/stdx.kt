@@ -10,7 +10,6 @@ import kotlin.reflect.KProperty
  *val PORT by environment
  * ```
  */
-@Deprecated("Replaced by Environment object", ReplaceWith("Environment", "dev.schlaubi.envconf.Environment"))
 public val environment: EnvironmentVariable<String>
     get() = getEnv()
 
@@ -21,6 +20,7 @@ public val environment: EnvironmentVariable<String>
  * val PORT by environment
  * ```
  */
+@Deprecated("Replaced by environment", ReplaceWith("environment"))
 public object Environment {
     /**
      * See [Environment] for usage.
@@ -62,7 +62,6 @@ public fun <T> getEnv(
  * @see Config
  * @see ReadOnlyProperty
  */
-@Suppress("LocalVariableName")
 public sealed class EnvironmentVariable<T>(
     private val prefix: String?,
     private val transform: (String) -> T?,

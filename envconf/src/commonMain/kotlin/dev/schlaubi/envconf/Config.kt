@@ -21,7 +21,6 @@ public open class Config constructor(private val prefix: String = "") {
      * }
      * ```
      */
-    @Deprecated("Replaced by provideDelegate", ReplaceWith("this"))
     protected val environment: EnvironmentVariable<String>
         get() = getEnv()
 
@@ -36,6 +35,7 @@ public open class Config constructor(private val prefix: String = "") {
      * }
      * ```
      */
+    @Deprecated("Replaced by environment", ReplaceWith("environment"))
     public operator fun provideDelegate(thisRef: Any?, property: KProperty<*>): EnvironmentVariable<String> = getEnv()
 
     /**

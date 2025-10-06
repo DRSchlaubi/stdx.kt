@@ -1,4 +1,4 @@
-import dev.schlaubi.envconf.Environment
+import dev.schlaubi.envconf.environment
 import dev.schlaubi.envconf.getEnv
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -15,7 +15,7 @@ class PlainTest {
 
     @Test
     fun testSimpleValueWithShortcut() {
-        val HELLO by Environment
+        val HELLO by environment
 
         assertEquals(HELLO, "HELLO")
     }
@@ -36,7 +36,7 @@ class PlainTest {
 
     @Test
     fun testSimpleValueWithDefault() {
-        val HELLO by Environment
+        val HELLO by environment
         val HELLO2 by getEnv(default = "HELLO")
 
         assertEquals(HELLO, "HELLO")
